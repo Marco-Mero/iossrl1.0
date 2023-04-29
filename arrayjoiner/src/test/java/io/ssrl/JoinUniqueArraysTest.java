@@ -17,7 +17,6 @@ public class JoinUniqueArraysTest extends TestConstants {
     @BeforeAll
     public static void setup() {
         random = new Random();
-
     }
 
     @Test

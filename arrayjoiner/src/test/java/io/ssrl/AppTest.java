@@ -10,7 +10,6 @@ import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-// import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SuppressWarnings({"checkstyle:MissingJavadocType", "checkstyle:MissingJavadocMethod"})
 class AppTest extends TestConstants {
