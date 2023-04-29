@@ -26,7 +26,7 @@ public class UtilsArrayTest extends TestConstants {
     @Test
     void emptyStringToIntArray() {
         int[] expected = new int[0];
-        int[] result = UtilsArray.stringToIntArray("");
+        int[] result = UtilsArray.stringToIntArray(null);
         assertArrayEquals(expected, result);
     }
 
@@ -47,7 +47,6 @@ public class UtilsArrayTest extends TestConstants {
         for (int j = 0; j < intArray.length; j++) {
             intArray[j] = random.nextInt(MAX_VALUE - 1) + 1;
         }
-        System.setOut(new PrintStream(outContent));
         UtilsArray.printArr(intArray);
         assertEquals(java.util.Arrays.toString(intArray).replaceAll(",", ""), outContent.toString());
     }
@@ -87,10 +86,12 @@ public class UtilsArrayTest extends TestConstants {
         int minValue = 0;
         int inputtedMax = random.nextInt(MAX_VALUE);
         int desiredLength = random.nextInt(MAX_LENGTH);
-        int[] result = UtilsArray.generateIntArray(minValue, inputtedMax, desiredLength, 0);
-        assertEquals(desiredLength, result.length);
+        int lengthDelta = random.nextInt(MAX_VALUE);
+        int[] result = UtilsArray.generateIntArray(minValue, inputtedMax, desiredLength, lengthDelta);
+        assertTrue(desiredLength <= result.length);
         for (int k = 0; k < result.length; k++) {
             assertTrue(result[k] >= minValue && result[k] <= inputtedMax);
         }
     }
+
 }

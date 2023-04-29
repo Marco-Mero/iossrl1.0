@@ -8,13 +8,13 @@ public final class UtilsArray {
     }
 
     public static int[] stringToIntArray(String originalArrayString) {
+        if (originalArrayString == null || originalArrayString.length() == 0) {
+            return new int[0];
+        }
         String arrayString = originalArrayString.trim()
                 .replaceAll("[^\\d\\-\\s]", "")
                 .trim()
                 .replaceAll("\\- ", "-").replaceAll("\\s+", " ");
-        if (arrayString == null || arrayString.length() == 0) {
-            return new int[0];
-        }
         String[] splitString = arrayString.split(" ");
         int[] intArray = new int[splitString.length];
         for (int i = 0; i < splitString.length; i++) {

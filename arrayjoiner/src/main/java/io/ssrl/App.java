@@ -6,20 +6,17 @@ public final class App {
     }
 
     public static void main(String[] args) {
-
         int[] intArray1;
         int[] intArray2;
-
         System.out.println(
                 " ~ Unione di due array, senza duplicati.");
 
         if (args.length == 0) {
-            System.out.println("String[] args deve contenere stringhe valide, es:\n");
-            System.out.print("  ~$ <path>/TestJoinArrays \"3 2 4 7 4 5\" \"3 1 9\"\n");
+            System.out.println(
+                    "String[] args deve contenere stringhe valide.");
         } else {
-
             System.out.println("\n~$ Primo array:");
-            intArray1 = UtilsArray.stringToIntArray(args[0]);
+            intArray1 = (args[0] != null) ? UtilsArray.stringToIntArray(args[0]) : new int[0];
             UtilsArray.printArr(intArray1);
 
             if (args.length == 1) {

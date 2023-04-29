@@ -17,10 +17,16 @@ public class JoinUniqueArraysTest extends TestConstants {
     @BeforeAll
     public static void setup() {
         random = new Random();
+
     }
 
     @Test
-    void testEmpty1() {
+    void testJoinNull() {
+        assertArrayEquals(JoinUniqueArrays.joinArrays(null, null), new int[0]);
+    }
+
+    @Test
+    void testJoinEmpty1() {
         int maxValue = random.nextInt(MAX_VALUE);
         int maxLength = random.nextInt(MAX_LENGTH);
         int[] intArray1 = new int[0];
@@ -34,7 +40,7 @@ public class JoinUniqueArraysTest extends TestConstants {
     }
 
     @Test
-    void testEmpty2() {
+    void testJoinEmpty2() {
 
         int maxValue = random.nextInt(MAX_VALUE);
         int maxLength = random.nextInt(MAX_LENGTH);
