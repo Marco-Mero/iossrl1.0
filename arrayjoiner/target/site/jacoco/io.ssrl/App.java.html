@@ -9,27 +9,27 @@ public final class App {
         int[] intArray1;
         int[] intArray2;
 <span class="fc" id="L11">        System.out.println(</span>
-<span class="fc" id="L12">                &quot; ~ Unione di due array, senza duplicati.&quot;);</span>
+                &quot; ~ Unione di due array, senza duplicati.&quot;);
 
 <span class="fc bfc" id="L14" title="All 2 branches covered.">        if (args.length == 0) {</span>
 <span class="fc" id="L15">            System.out.println(</span>
-<span class="fc" id="L16">                    &quot;String[] args deve contenere stringhe valide.&quot;);</span>
-<span class="fc" id="L17">        } else {</span>
+                    &quot;String[] args deve contenere stringhe valide.&quot;);
+        } else {
 <span class="fc" id="L18">            System.out.println(&quot;\n~$ Primo array:&quot;);</span>
-<span class="fc" id="L19">            intArray1 = UtilsArray.stringToIntArray(args[0]);</span>
-<span class="fc" id="L20">            UtilsArray.printArr(intArray1);</span>
+<span class="fc" id="L19">            intArray1 = ArrayUtils.stringToIntArray(args[0]);</span>
+<span class="fc" id="L20">            ArrayUtils.printArr(intArray1);</span>
 
 <span class="fc bfc" id="L22" title="All 2 branches covered.">            if (args.length == 1) {</span>
 <span class="fc" id="L23">                System.out.println(&quot;\n\n~~~ Unione con [ ]:&quot;);</span>
 <span class="fc" id="L24">                intArray2 = new int[0];</span>
-<span class="fc" id="L25">                UtilsArray.printArr(intArray1);</span>
-<span class="fc" id="L26">            } else {</span>
+<span class="fc" id="L25">                ArrayUtils.printArr(intArray1);</span>
+            } else {
 <span class="fc" id="L27">                System.out.println(&quot;\n~$ Secondo array:&quot;);</span>
-<span class="fc" id="L28">                intArray2 = UtilsArray.stringToIntArray(args[1]);</span>
-<span class="fc" id="L29">                UtilsArray.printArr(intArray2);</span>
+<span class="fc" id="L28">                intArray2 = ArrayUtils.stringToIntArray(args[1]);</span>
+<span class="fc" id="L29">                ArrayUtils.printArr(intArray2);</span>
             }
 <span class="fc" id="L31">            System.out.println(&quot;\n\n~~~ Unione:&quot;);</span>
-<span class="fc" id="L32">            UtilsArray.printArr(JoinUniqueArrays.joinArrays(intArray1, intArray2));</span>
+<span class="fc" id="L32">            ArrayUtils.printArr(JoinUniqueArrays.joinArrays(intArray1, intArray2));</span>
         }
 <span class="fc" id="L34">    }</span>
 }

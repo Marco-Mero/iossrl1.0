@@ -50,18 +50,18 @@ class AppTest extends TestConstants {
 
         int desiredLength = random.nextInt(MAX_LENGTH);
         int maxValue = random.nextInt(MAX_VALUE);
-        int[] intArray1 = UtilsArray.generateIntArray(maxValue, desiredLength);
+        int[] intArray1 = ArrayUtils.generateIntArray(maxValue, desiredLength);
 
         desiredLength = random.nextInt(MAX_LENGTH);
         maxValue = random.nextInt(MAX_VALUE);
 
-        int[] intArray2 = UtilsArray.generateIntArray(maxValue, desiredLength);
+        int[] intArray2 = ArrayUtils.generateIntArray(maxValue, desiredLength);
         String[] args = {Arrays.toString(intArray1), Arrays.toString(intArray2)};
 
         App.main(args);
         String actualOutput = outContent.toString().trim();
         System.setOut(new PrintStream(paragon));
-        UtilsArray.printArr(JoinUniqueArrays.joinArrays(intArray1, intArray2));
+        ArrayUtils.printArr(JoinUniqueArrays.joinArrays(intArray1, intArray2));
 
         String expectedString = paragon.toString().trim();
         assertTrue(actualOutput.endsWith(expectedString));

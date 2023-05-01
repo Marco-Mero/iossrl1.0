@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: io.ssrl.AppTest
 -------------------------------------------------------------------------------
-Tests run: 1002, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.009 s - in io.ssrl.AppTest
+Tests run: 102, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.323 s - in io.ssrl.AppTest

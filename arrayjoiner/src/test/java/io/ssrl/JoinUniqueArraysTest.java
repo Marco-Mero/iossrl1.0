@@ -29,7 +29,7 @@ public class JoinUniqueArraysTest extends TestConstants {
         int maxValue = random.nextInt(MAX_VALUE);
         int maxLength = random.nextInt(MAX_LENGTH);
         int[] intArray1 = new int[0];
-        int[] intArray2 = UtilsArray.generateIntArray(maxValue, maxLength);
+        int[] intArray2 = ArrayUtils.generateIntArray(maxValue, maxLength);
 
         int[] paragonTerm = Arrays
                 .stream(IntStream.concat(Arrays.stream(intArray1), Arrays.stream(intArray2)).distinct().toArray())
@@ -43,7 +43,7 @@ public class JoinUniqueArraysTest extends TestConstants {
 
         int maxValue = random.nextInt(MAX_VALUE);
         int maxLength = random.nextInt(MAX_LENGTH);
-        int[] intArray1 = UtilsArray.generateIntArray(maxValue, maxLength);
+        int[] intArray1 = ArrayUtils.generateIntArray(maxValue, maxLength);
         int[] intArray2 = new int[0];
 
         int[] paragonTerm = Arrays
@@ -61,11 +61,11 @@ public class JoinUniqueArraysTest extends TestConstants {
 
         int maxValue = random.nextInt(MAX_VALUE);
         int length = random.nextInt(MAX_LENGTH);
-        intArray1 = UtilsArray.generateIntArray(maxValue, length);
+        intArray1 = ArrayUtils.generateIntArray(maxValue, length);
 
         maxValue = random.nextInt(MAX_VALUE);
         length = random.nextInt(MAX_LENGTH);
-        intArray2 = UtilsArray.generateIntArray(maxValue, length);
+        intArray2 = ArrayUtils.generateIntArray(maxValue, length);
 
         int[] paragonTerm = Arrays
                 .stream(IntStream.concat(Arrays.stream(intArray1), Arrays.stream(intArray2)).distinct().toArray())
