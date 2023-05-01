@@ -37,18 +37,10 @@ public final class UtilsArray {
     }
 
     public static int[] generateIntArray(int maxValue, int length) {
-        return generateIntArray(0, Math.max(maxValue, 0), length, 0);
+        return generateIntArray(0, Math.max(maxValue, 1), length, 0);
     }
 
-    public static int[] generateIntArray(int minValue, int inputtedMax, int minLength, int lengthDifference) {
-        if (inputtedMax < minValue) {
-            System.out.println("Max was lesser than min. Inverting.");
-            int temp = inputtedMax;
-            inputtedMax = minValue;
-            minValue = temp;
-        }
-        int maxValue = Math.max(inputtedMax, 0);
-
+    public static int[] generateIntArray(int minValue, int maxValue, int minLength, int lengthDifference) {
         Random rand = new Random();
 
         int lengthDelta = (lengthDifference > 0) ? rand.nextInt(lengthDifference) : 0;

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JoinUniqueArrays.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">arrayjoiner</a> &gt; <a href="index.source.html" class="el_package">io.ssrl</a> &gt; <span class="el_source">JoinUniqueArrays.java</span></div><h1>JoinUniqueArrays.java</h1><pre class="source lang-java linenums">package io.ssrl;
+
+@SuppressWarnings({&quot;checkstyle:MissingJavadocType&quot;, &quot;checkstyle:MissingJavadocMethod&quot;})
+public final class JoinUniqueArrays {
+
+    private JoinUniqueArrays() {
+    }
+
+    private static boolean findItem(int item, int[] array, int end) {
+<span class="fc bfc" id="L10" title="All 2 branches covered.">        for (int i = 0; i &lt; end; i++) {</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">            if (array[i] == item) {</span>
+<span class="fc" id="L12">                return true;</span>
+            }
+        }
+<span class="fc" id="L15">        return false;</span>
+    }
+
+    private static int[] joinValidated(int[] array1, int[] array2) {
+
+<span class="fc" id="L20">        int[] merged = new int[array1.length + array2.length];</span>
+<span class="fc" id="L21">        int countUniques = 1;</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        merged[0] = (array1.length &gt; 0) ? array1[0] : array2[0];</span>
+
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        for (int i = 1; i &lt; array1.length; i++) {</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">            if (!findItem(array1[i], merged, countUniques)) {</span>
+<span class="fc" id="L26">                merged[countUniques] = array1[i];</span>
+<span class="fc" id="L27">                countUniques++;</span>
+            }
+        }
+
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        for (int i = 0; i &lt; array2.length; i++) {</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">            if (!findItem(array2[i], merged, countUniques)) {</span>
+<span class="fc" id="L33">                merged[countUniques] = array2[i];</span>
+<span class="fc" id="L34">                countUniques++;</span>
+            }
+
+        }
+
+<span class="fc" id="L39">        int[] uniqueJoined = new int[countUniques];</span>
+<span class="fc" id="L40">        System.arraycopy(merged, 0, uniqueJoined, 0, countUniques);</span>
+<span class="fc" id="L41">        return uniqueJoined;</span>
+    }
+
+    public static int[] joinArrays(int[] array1, int[] array2) {
+<span class="fc bfc" id="L45" title="All 8 branches covered.">        if ((array1 == null || array1.length == 0) &amp;&amp; (array2 == null || array2.length == 0)) {</span>
+<span class="fc" id="L46">            return new int[0];</span>
+        }
+<span class="fc" id="L48">        return joinValidated(array1, array2);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -21,7 +21,7 @@ public final class App {
 
             if (args.length == 1) {
                 System.out.println("\n\n~~~ Unione con [ ]:");
-                intArray2 = UtilsArray.stringToIntArray("");
+                intArray2 = new int[0];
                 UtilsArray.printArr(intArray1);
             } else {
                 System.out.println("\n~$ Secondo array:");

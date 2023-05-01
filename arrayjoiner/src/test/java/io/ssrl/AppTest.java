@@ -56,7 +56,7 @@ class AppTest extends TestConstants {
         maxValue = random.nextInt(MAX_VALUE);
 
         int[] intArray2 = UtilsArray.generateIntArray(maxValue, desiredLength);
-        String[] args = { Arrays.toString(intArray1), Arrays.toString(intArray2) };
+        String[] args = {Arrays.toString(intArray1), Arrays.toString(intArray2)};
 
         App.main(args);
         String actualOutput = outContent.toString().trim();
