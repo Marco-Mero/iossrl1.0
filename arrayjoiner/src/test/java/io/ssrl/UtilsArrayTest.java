@@ -26,7 +26,7 @@ public class UtilsArrayTest extends TestConstants {
     @Test
     void emptyStringToIntArray() {
         int[] expected = new int[0];
-        int[] result = UtilsArray.stringToIntArray(null);
+        int[] result = UtilsArray.stringToIntArray("q");
         assertArrayEquals(expected, result);
     }
 
