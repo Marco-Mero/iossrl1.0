@@ -14,16 +14,18 @@ public final class UtilsArray {
         String arrayString = originalArrayString.trim()
                 .replaceAll("[^\\d\\-\\s]", "")
                 .trim()
-                .replaceAll("\\- ", "-").replaceAll("\\s+", " ");
+                .replaceAll("\\- ", "-")
+                .replaceAll("\\s+", " ");
         if (arrayString == null || arrayString.length() == 0) {
             return new int[0];
         }
         String[] splitString = arrayString.split(" ");
         int[] intArray = new int[splitString.length];
         for (int i = 0; i < splitString.length; i++) {
-            intArray[i] = Integer.parseInt(splitString[i]);
+            if (!splitString[i].isEmpty()) {
+                intArray[i] = Integer.parseInt(splitString[i]);
+            }
         }
-
         return intArray;
     }
 
@@ -43,13 +45,18 @@ public final class UtilsArray {
         return generateIntArray(0, Math.max(maxValue, 1), length, 0);
     }
 
-    public static int[] generateIntArray(int minValue, int maxValue, int minLength, int lengthDifference) {
+    public static int[] generateIntArray(int inputtedMin, int inputtedMax, int minLength, int lengthDifference) {
         Random rand = new Random();
+        int maxValue = Math.max(Math.max(inputtedMin, inputtedMax), 1);
+        int minValue = Math.max(Math.min(inputtedMax, inputtedMin), 0);
+
+        int diff = maxValue - minValue;
+        diff = Math.max(diff, 1);
 
         int lengthDelta = (lengthDifference > 0) ? rand.nextInt(lengthDifference) : 0;
         int[] intArr = new int[minLength + lengthDelta];
         for (int i = 0; i < intArr.length; i++) {
-            intArr[i] = rand.nextInt(maxValue - minValue) + minValue;
+            intArr[i] = rand.nextInt(diff) + minValue;
         }
 
         return intArr;
