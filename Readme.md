@@ -1,6 +1,7 @@
 ###### Note:
 
 - La mancanza di Javadoc è da considerarsi in ottemperanza con la direttiva di evitare commenti.
+- L'artefatto arrayutils è una dipendenza per vari progetti, creata  per evitare metodi predefiniti.
 - Redo del mio primo progetto Java su Git, sfruttando framework Maven con JUnit.
 
 ---
