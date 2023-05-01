@@ -2,7 +2,7 @@ package io.ssrl;
 
 import java.util.Random;
 
-@SuppressWarnings({"checkstyle:MissingJavadocType", "checkstyle:MissingJavadocMethod"})
+@SuppressWarnings({ "checkstyle:MissingJavadocType", "checkstyle:MissingJavadocMethod" })
 public final class UtilsArray {
     private UtilsArray() {
     }
@@ -41,7 +41,14 @@ public final class UtilsArray {
     }
 
     public static int[] generateIntArray(int minValue, int inputtedMax, int minLength, int lengthDifference) {
+        if (inputtedMax < minValue) {
+            System.out.println("Max was lesser than min. Inverting.");
+            int temp = inputtedMax;
+            inputtedMax = minValue;
+            minValue = temp;
+        }
         int maxValue = Math.max(inputtedMax, 0);
+
         Random rand = new Random();
 
         int lengthDelta = (lengthDifference > 0) ? rand.nextInt(lengthDifference) : 0;

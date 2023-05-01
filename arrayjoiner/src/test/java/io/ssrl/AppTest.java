@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@SuppressWarnings({"checkstyle:MissingJavadocType", "checkstyle:MissingJavadocMethod"})
+@SuppressWarnings({ "checkstyle:MissingJavadocType", "checkstyle:MissingJavadocMethod" })
 class AppTest extends TestConstants {
     private static Random random;
     private static ByteArrayOutputStream outContent;
@@ -33,13 +33,15 @@ class AppTest extends TestConstants {
         App.main(new String[0]);
         String actualOutput = outContent.toString().trim();
         String expectedString = "String[] args deve contenere stringhe valide.";
-        assertTrue(actualOutput.endsWith(expectedString),
-                "output does not end with expected string. Output:\n" + actualOutput);
+        assertTrue(actualOutput.endsWith(expectedString));
     }
 
     @Test
-    void testSingleArg() {
+    void testSingleEmpty() {
         App.main(new String[1]);
+        String actualOutput = outContent.toString().trim();
+        String expectedString = "[ ]";
+        assertTrue(actualOutput.endsWith(expectedString));
     }
 
     @RepeatedTest(TESTS_TO_RUN)
@@ -54,7 +56,7 @@ class AppTest extends TestConstants {
         maxValue = random.nextInt(MAX_VALUE);
 
         int[] intArray2 = UtilsArray.generateIntArray(maxValue, desiredLength);
-        String[] args = {Arrays.toString(intArray1), Arrays.toString(intArray2)};
+        String[] args = { Arrays.toString(intArray1), Arrays.toString(intArray2) };
 
         App.main(args);
         String actualOutput = outContent.toString().trim();
