@@ -7,9 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class RecursionArrayMinTest extends TestConstants {
 
     @RepeatedTest(TESTS_TO_RUN)
-    void testRandomArrays() {
+    void testRandomArray() {
         int[] intArray;
-        intArray = ArrayUtils.generateIntArray(MIN_VALUE, MAX_VALUE, MAX_LENGTH, DELTA);
+        intArray = ArrayUtils.generateIntArray(MIN_VALUE, MAX_VALUE, MAX_LENGTH, LENGTH_DELTA);
         int iterativeMin = MAX_VALUE;
         for (int j = 0; j < intArray.length; j++) {
             iterativeMin = intArray[j] < iterativeMin ? intArray[j] : iterativeMin;

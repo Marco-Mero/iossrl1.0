@@ -14,7 +14,7 @@ public final class App {
         int[] intArray;
 
         if (args.length > 0) {
-            for (int i = 1; i < args.length; i++) {
+            for (int i = 0; i < args.length; i++) {
                 intArray = ArrayUtils.stringToIntArray(args[0]);
                 System.out.print("Array in input:");
                 ArrayUtils.printArr(intArray);
