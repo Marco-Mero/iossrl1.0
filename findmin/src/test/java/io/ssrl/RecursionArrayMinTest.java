@@ -1,8 +1,10 @@
 package io.ssrl;
 
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class RecursionArrayMinTest extends TestConstants {
 
@@ -15,5 +17,13 @@ class RecursionArrayMinTest extends TestConstants {
             iterativeMin = intArray[j] < iterativeMin ? intArray[j] : iterativeMin;
         }
         assertEquals(RecursionArrayMin.findMinimum(intArray), iterativeMin);
+    }
+
+    @Test
+    void testNullFindMininimum() {
+        Throwable nullArrayException = assertThrows(IllegalArgumentException.class, () -> {
+            RecursionArrayMin.findMinimum(null);
+        });
+        assertEquals("Input Array must not be null or empty.", nullArrayException.getMessage());
     }
 }
