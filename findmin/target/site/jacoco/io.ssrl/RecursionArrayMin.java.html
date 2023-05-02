@@ -8,8 +8,8 @@ public final class RecursionArrayMin {
 <span class="pc bpc" id="L8" title="2 of 4 branches missed.">        if (array == null || array.length == 0) {</span>
 <span class="nc" id="L9">            throw new IllegalArgumentException(&quot;Input Array must not be null or empty.&quot;);</span>
         }
-<span class="pc bpc" id="L11" title="1 of 2 branches missed.">        if (array.length == 1) {</span>
-<span class="nc" id="L12">            return array[0];</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">        if (array.length == 1) {</span>
+<span class="fc" id="L12">            return array[0];</span>
         }
 <span class="fc" id="L14">        return findMinimum(array, array.length - 1, array[array.length - 1]);</span>
     }

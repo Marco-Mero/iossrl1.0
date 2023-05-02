@@ -3,7 +3,6 @@ package io.ssrl;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
-
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
@@ -37,9 +36,9 @@ class AppTest extends TestConstants {
             String arrayToAdd = ArrayUtils.generateIntArray(MIN_VALUE, MAX_VALUE, MAX_LENGTH, LENGTH_DELTA).toString();
             argsList.add(arrayToAdd);
         }
-        String[] Args = argsList.toArray(new String[argsList.size()]);
-        assertEquals(argsList.size(), Args.length);
-        App.main(Args);
+        String[] args = argsList.toArray(new String[argsList.size()]);
+        assertEquals(argsList.size(), args.length);
+        App.main(args);
         String actualOutput = outContent.toString().trim();
         String expectedString = "Minimo trovato: ";
         int appearenceCount = 0;

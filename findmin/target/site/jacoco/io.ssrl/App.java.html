@@ -8,17 +8,17 @@ public final class App {
 
 <span class="fc" id="L9">        System.out.println(&quot;\n~~~ ~~~ ~~~ ~~~ ~~~ ~~~ &quot;);</span>
 <span class="fc" id="L10">        System.out.println(</span>
-                &quot;| ~ Test di ricerca ricorsiva minimo in un array&quot;);
+<span class="fc" id="L11">                &quot;| ~ Test di ricerca ricorsiva minimo in un array&quot;);</span>
 <span class="fc" id="L12">        System.out.println(</span>
-                &quot;| di lunghezza 20+ con valori fra 1 e 1000.\n&quot;);
+<span class="fc" id="L13">                &quot;| di lunghezza 20+ con valori fra 1 e 1000.\n&quot;);</span>
         int[] intArray;
 
-<span class="pc bpc" id="L16" title="1 of 2 branches missed.">        if (args.length &gt; 0) {</span>
-<span class="nc bnc" id="L17" title="All 2 branches missed.">            for (int i = 1; i &lt; args.length; i++) {</span>
-<span class="nc" id="L18">                intArray = ArrayUtils.stringToIntArray(args[0]);</span>
-<span class="nc" id="L19">                System.out.print(&quot;Array in input:&quot;);</span>
-<span class="nc" id="L20">                ArrayUtils.printArr(intArray);</span>
-<span class="nc" id="L21">                System.out.println(&quot;Minimo trovato: &quot; + RecursionArrayMin.findMinimum(intArray));</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">        if (args.length &gt; 0) {</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">            for (int i = 0; i &lt; args.length; i++) {</span>
+<span class="fc" id="L18">                intArray = ArrayUtils.stringToIntArray(args[0]);</span>
+<span class="fc" id="L19">                System.out.print(&quot;Array in input:&quot;);</span>
+<span class="fc" id="L20">                ArrayUtils.printArr(intArray);</span>
+<span class="fc" id="L21">                System.out.println(&quot;Minimo trovato: &quot; + RecursionArrayMin.findMinimum(intArray));</span>
             }
         }
 <span class="fc" id="L24">    }</span>
