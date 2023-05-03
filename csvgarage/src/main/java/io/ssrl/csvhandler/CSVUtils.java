@@ -10,7 +10,13 @@ import java.util.ArrayList;
 
 public final class CSVUtils {
 
-    private static final String CSV_PATH = "src/iossrl/csvgarage/CSVGarage.csv";
+    private static final String CSV_PATH = "CSVGarage.csv";
+    public static final String DEFAULTS_CSV = "marca;modello;prezzo;targa;numero_ruote\n" +
+            "fiat;panda;14000.0;pd000xy;4\n" +
+            "ducati;monster;12000.0;dt000rr;2\n" +
+            "iveco;aaa;100000.0;iv9999dt;4\n" +
+            "ford;focus;35000.0;io000sr;4\n" +
+            "honda;hornet;5000.0;ho987dg;2\n";
 
     private CSVUtils() {
     }
@@ -160,12 +166,7 @@ public final class CSVUtils {
     public static void hardResetToExampleFileProvided() {
 
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(CSV_PATH))) {
-            bufferedWriter.write("marca;modello;prezzo;targa;numero_ruote\n");
-            bufferedWriter.write("fiat;panda;14000.0;pd000xy;4\n");
-            bufferedWriter.write("ducati;monster;12000.0;dt000rr;2\n");
-            bufferedWriter.write("iveco;aaa;100000.0;iv9999dt;4\n");
-            bufferedWriter.write("ford;focus;35000.0;io000sr;4\n");
-            bufferedWriter.write("honda;hornet;5000.0;ho987dg;2\n");
+            bufferedWriter.write(DEFAULTS_CSV);
         } catch (IOException e) {
             System.out.println("reset failed.");
         }
