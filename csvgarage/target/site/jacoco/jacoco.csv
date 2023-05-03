@@ -1,0 +1,8 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+findmin,io.ssrl.models,Moto,9,0,0,0,3,0,2,0,2,0
+findmin,io.ssrl.models,Vehicle,165,0,5,0,35,0,12,0,9,0
+findmin,io.ssrl.models,Validator,118,0,21,0,24,0,15,0,4,0
+findmin,io.ssrl.models,Car,9,0,0,0,3,0,2,0,2,0
+findmin,io.ssrl,App.new ArrayList() {...},19,0,0,0,4,0,1,0,1,0
+findmin,io.ssrl,App,247,0,22,0,65,0,18,0,5,0
+findmin,io.ssrl.csvhandler,CSVUtils,473,0,38,0,99,0,29,0,10,0
