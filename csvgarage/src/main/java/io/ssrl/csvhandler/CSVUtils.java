@@ -63,7 +63,13 @@ public final class CSVUtils {
         String msg = "Veicolo targato " + plate + " non trovato.";
         String currentVehicle = msg;
 
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(CSV_PATH))) {
+        if (plate == null || plate.trim().equals("")) {
+            throw new IllegalArgumentException("Plate must not be null.");
+        }
+
+        try (
+
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(CSV_PATH))) {
             do {
                 currentVehicle = bufferedReader.readLine();
                 lineNumber++;
@@ -82,6 +88,9 @@ public final class CSVUtils {
     }
 
     public static ArrayList<String> listFromCSVByPrice(String inputtedPrice) {
+        if (inputtedPrice == null) {
+            throw new IllegalArgumentException("Price must not be null.");
+        }
         String priceString = inputtedPrice.replaceAll("[^\\d\\.]", "");
         ArrayList<String> vehicleList = new ArrayList<String>();
         String msg = "Non sono presenti veicoli a costo " + priceString + "$";
@@ -149,11 +158,7 @@ public final class CSVUtils {
     }
 
     public static void hardResetToExampleFileProvided() {
-        hardResetToExampleFileProvided(CSV_PATH);
-    }
-
-    public static void hardResetToExampleFileProvided(String path) {
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path))) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(CSV_PATH))) {
             bufferedWriter.write(DEFAULTS_CSV);
         } catch (IOException e) {
             System.out.println("reset failed.");

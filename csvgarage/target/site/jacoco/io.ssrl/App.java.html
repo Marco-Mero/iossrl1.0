@@ -4,6 +4,7 @@ import io.ssrl.csvhandler.CSVUtils;
 import io.ssrl.models.Car;
 import io.ssrl.models.Moto;
 import io.ssrl.models.Vehicle;
+import java.io.File;
 import java.util.ArrayList;
 
 public final class App {
@@ -30,95 +31,101 @@ public final class App {
     }
 
     private static void printArrayList(ArrayList&lt;String&gt; recordList) {
-<span class="fc bfc" id="L33" title="All 2 branches covered.">        for (String singleRecord : recordList) {</span>
-<span class="fc" id="L34">            System.out.println(singleRecord.replaceAll(&quot;;&quot;, &quot; &quot;));</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        for (String singleRecord : recordList) {</span>
+<span class="fc" id="L35">            System.out.println(singleRecord.replaceAll(&quot;;&quot;, &quot; &quot;));</span>
         }
-<span class="fc" id="L36">    }</span>
+<span class="fc" id="L37">    }</span>
 
     private static void printVehicleList(ArrayList&lt;Vehicle&gt; vehicleList) {
-<span class="fc bfc" id="L39" title="All 2 branches covered.">        for (Vehicle singleVehicle : vehicleList) {</span>
-<span class="fc" id="L40">            System.out.println(singleVehicle.toCSVRecord().replaceAll(&quot;;&quot;, &quot; &quot;));</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        for (Vehicle singleVehicle : vehicleList) {</span>
+<span class="fc" id="L41">            System.out.println(singleVehicle.toCSVRecord().replaceAll(&quot;;&quot;, &quot; &quot;));</span>
         }
-<span class="fc" id="L42">    }</span>
+<span class="fc" id="L43">    }</span>
 
     private static void selectProgram(String choice) {
-<span class="fc bfc" id="L45" title="All 6 branches covered.">        switch (choice) {</span>
+<span class="fc bfc" id="L46" title="All 6 branches covered.">        switch (choice) {</span>
             case &quot;moto&quot;:
-<span class="fc" id="L47">                System.out.println(&quot;\nMoto nel file:&quot;);</span>
-<span class="fc" id="L48">                printArrayList(CSVUtils.listFromCSVByWheelNumber(Moto.WHEEL_NUMBER));</span>
-<span class="fc" id="L49">                break;</span>
+<span class="fc" id="L48">                System.out.println(&quot;\nMoto nel file:&quot;);</span>
+<span class="fc" id="L49">                printArrayList(CSVUtils.listFromCSVByWheelNumber(Moto.WHEEL_NUMBER));</span>
+<span class="fc" id="L50">                break;</span>
             case &quot;auto&quot;:
-<span class="fc" id="L51">                System.out.println(&quot;\nMacchine nel file:&quot;);</span>
-<span class="fc" id="L52">                printArrayList(CSVUtils.listFromCSVByWheelNumber(Car.WHEEL_NUMBER));</span>
-<span class="fc" id="L53">                break;</span>
+<span class="fc" id="L52">                System.out.println(&quot;\nMacchine nel file:&quot;);</span>
+<span class="fc" id="L53">                printArrayList(CSVUtils.listFromCSVByWheelNumber(Car.WHEEL_NUMBER));</span>
+<span class="fc" id="L54">                break;</span>
             case &quot;help&quot;:
-<span class="fc" id="L55">                System.out.println(HELP);</span>
-<span class="fc" id="L56">                break;</span>
+<span class="fc" id="L56">                System.out.println(HELP);</span>
+<span class="fc" id="L57">                break;</span>
             case &quot;Standardtest.123&quot;:
-<span class="fc" id="L58">                Vehicle fiesta = new Car(&quot;ford&quot;, &quot;fiesta&quot;, TEST_PRICE, &quot;pl473ed&quot;);</span>
-<span class="fc" id="L59">                Vehicle harley = new Moto(&quot;harley&quot;, &quot;moto&quot;, TEST_PRICE, &quot;pl47ad&quot;);</span>
-<span class="fc" id="L60">                standardTest(fiesta, harley, &quot;io000sr&quot;, &quot;1233.0&quot;);</span>
-<span class="fc" id="L61">                break;</span>
+<span class="fc" id="L59">                Vehicle fiesta = new Car(&quot;ford&quot;, &quot;fiesta&quot;, TEST_PRICE, &quot;pl473ed&quot;);</span>
+<span class="fc" id="L60">                Vehicle harley = new Moto(&quot;harley&quot;, &quot;moto&quot;, TEST_PRICE, &quot;pl47ad&quot;);</span>
+<span class="fc" id="L61">                standardTest(fiesta, harley, &quot;io000sr&quot;, &quot;1233.0&quot;);</span>
+<span class="fc" id="L62">                break;</span>
             case &quot;HardReset&quot;:
-<span class="fc" id="L63">                CSVUtils.hardResetToExampleFileProvided();</span>
-<span class="fc" id="L64">                break;</span>
+<span class="fc" id="L64">                CSVUtils.hardResetToExampleFileProvided();</span>
+<span class="fc" id="L65">                break;</span>
             default:
-<span class="pc bpc" id="L66" title="1 of 4 branches missed.">                if (choice == null || choice.isEmpty()) {</span>
-<span class="fc" id="L67">                    System.out.println(INSTRUCTIONS);</span>
-<span class="fc" id="L68">                    CSVUtils.printAllVehicles();</span>
-<span class="fc" id="L69">                    System.out.println(&quot;Scrivi help per visualizzare una lista degli input accettati.&quot;);</span>
-<span class="fc" id="L70">                    break;</span>
+<span class="pc bpc" id="L67" title="1 of 4 branches missed.">                if (choice == null || choice.isEmpty()) {</span>
+<span class="fc" id="L68">                    System.out.println(INSTRUCTIONS);</span>
+<span class="fc" id="L69">                    CSVUtils.printAllVehicles();</span>
+<span class="fc" id="L70">                    System.out.println(&quot;Scrivi help per visualizzare una lista degli input accettati.&quot;);</span>
+<span class="fc" id="L71">                    break;</span>
                 }
-<span class="fc bfc" id="L72" title="All 2 branches covered.">                if (choice.charAt(choice.length() - 1) == '$') {</span>
-<span class="fc" id="L73">                    String price = choice.replaceAll(&quot;\\$&quot;, &quot;&quot;);</span>
-<span class="fc" id="L74">                    printArrayList(CSVUtils.listFromCSVByPrice(price.toString()));</span>
-<span class="fc" id="L75">                } else {</span>
-<span class="fc" id="L76">                    System.out.println(&quot;\nRecord CSV e linea del file corrispondenti alla targa \&quot;&quot; + choice + &quot;\&quot; :&quot;);</span>
-<span class="fc" id="L77">                    System.out.println(CSVUtils.findVehicleCSVRecord(choice));</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">                if (choice.charAt(choice.length() - 1) == '$') {</span>
+<span class="fc" id="L74">                    String price = choice.replaceAll(&quot;\\$&quot;, &quot;&quot;);</span>
+<span class="fc" id="L75">                    printArrayList(CSVUtils.listFromCSVByPrice(price.toString()));</span>
+<span class="fc" id="L76">                } else {</span>
+<span class="fc" id="L77">                    System.out.println(&quot;\nRecord CSV e linea del file corrispondenti alla targa \&quot;&quot; + choice + &quot;\&quot; :&quot;);</span>
+<span class="fc" id="L78">                    System.out.println(CSVUtils.findVehicleCSVRecord(choice));</span>
                 }
         }
-<span class="fc" id="L80">    }</span>
+<span class="fc" id="L81">    }</span>
 
     public static void main(String[] args) {
 
-<span class="fc bfc" id="L84" title="All 2 branches covered.">        if (args.length &lt; 1) {</span>
-<span class="fc" id="L85">            System.out.println(&quot;INSTRUCTIONS&quot;);</span>
-<span class="fc" id="L86">            CSVUtils.printAllVehicles();</span>
+<span class="fc" id="L85">        File file = new File(&quot;CSVGarage.csv&quot;);</span>
+<span class="pc bpc" id="L86" title="1 of 2 branches missed.">        if (!file.exists()) {</span>
+<span class="fc" id="L87">            CSVUtils.hardResetToExampleFileProvided();</span>
         }
 
-<span class="fc bfc" id="L89" title="All 2 branches covered.">        if (args.length == 1) {</span>
-<span class="fc" id="L90">            selectProgram(args[0]);</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">        if (args.length &lt; 1) {</span>
+<span class="fc" id="L91">            System.out.println(INSTRUCTIONS);</span>
+<span class="fc" id="L92">            CSVUtils.printAllVehicles();</span>
+<span class="fc" id="L93">            System.out.print(&quot;\nProva ad inserire 'help' come argomento per il programma.&quot;);</span>
         }
 
-<span class="fc bfc" id="L93" title="All 2 branches covered.">        if (args.length &gt; 1) {</span>
-<span class="fc bfc" id="L94" title="All 2 branches covered.">            for (int i = 0; i &lt; args.length; i++) {</span>
-<span class="fc" id="L95">                CSVUtils.addVehicleToCSV(args[i]);</span>
+<span class="fc bfc" id="L96" title="All 2 branches covered.">        if (args.length == 1) {</span>
+<span class="fc" id="L97">            selectProgram(args[0]);</span>
+        }
+
+<span class="fc bfc" id="L100" title="All 2 branches covered.">        if (args.length &gt; 1) {</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">            for (int i = 0; i &lt; args.length; i++) {</span>
+<span class="fc" id="L102">                CSVUtils.addVehicleToCSV(args[i]);</span>
             }
         }
 
-<span class="fc" id="L99">        System.out.print(&quot;\n&quot;);</span>
-<span class="fc" id="L100">    }</span>
+<span class="fc" id="L106">        System.out.print(&quot;\n&quot;);</span>
+<span class="fc" id="L107">    }</span>
 
     private static void standardTest(Vehicle vehicle1, Vehicle vehicle2, String plateToFind, String priceToFind) {
-<span class="fc" id="L103">        System.out.println(&quot;~ Test standard ~&quot;);</span>
-<span class="fc" id="L104">        ArrayList&lt;Vehicle&gt; vehicleList = new ArrayList&lt;Vehicle&gt;() {</span>
+<span class="fc" id="L110">        System.out.println(&quot;~ Test standard ~&quot;);</span>
+<span class="fc" id="L111">        ArrayList&lt;Vehicle&gt; vehicleList = new ArrayList&lt;Vehicle&gt;() {</span>
             {
-<span class="fc" id="L106">                add(vehicle1);</span>
-<span class="fc" id="L107">                add(vehicle2);</span>
+<span class="fc" id="L113">                add(vehicle1);</span>
+<span class="fc" id="L114">                add(vehicle2);</span>
             }
         };
-<span class="fc" id="L110">        System.out.println(&quot;\n ~ Aggiungo i veicoli :&quot;);</span>
-<span class="fc" id="L111">        printVehicleList(vehicleList);</span>
+<span class="fc" id="L117">        System.out.println(&quot;\n ~ Aggiungo i veicoli :&quot;);</span>
+<span class="fc" id="L118">        printVehicleList(vehicleList);</span>
 
-<span class="fc" id="L113">        System.out.println(&quot;al file .csv:&quot;);</span>
-<span class="fc" id="L114">        CSVUtils.addVehiclesToCSV(vehicleList);</span>
+<span class="fc" id="L120">        System.out.println(&quot;al file .csv:&quot;);</span>
+<span class="fc" id="L121">        CSVUtils.addVehiclesToCSV(vehicleList);</span>
 
-<span class="fc" id="L116">        System.out.println(&quot;\nCerco il veicolo con targa: &quot; + plateToFind);</span>
-<span class="fc" id="L117">        System.out.println(CSVUtils.findVehicleCSVRecord(plateToFind).replace(&quot;;&quot;, &quot; &quot;));</span>
+<span class="fc" id="L123">        System.out.println(&quot;\nCerco il veicolo con targa: &quot; + plateToFind);</span>
+<span class="fc" id="L124">        System.out.println(CSVUtils.findVehicleCSVRecord(plateToFind).replace(&quot;;&quot;, &quot; &quot;));</span>
 
-<span class="fc" id="L119">        System.out.println(&quot;\nCerco tutti i veicoli con prezzo: &quot; + priceToFind);</span>
-<span class="fc" id="L120">        printArrayList(CSVUtils.listFromCSVByPrice(priceToFind));</span>
-<span class="fc" id="L121">    }</span>
+<span class="fc" id="L126">        System.out.println(&quot;\nCerco tutti i veicoli con prezzo: &quot; + priceToFind);</span>
+<span class="fc" id="L127">        printArrayList(CSVUtils.listFromCSVByPrice(priceToFind));</span>
+<span class="fc" id="L128">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

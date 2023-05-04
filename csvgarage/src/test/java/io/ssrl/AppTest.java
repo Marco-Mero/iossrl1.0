@@ -3,6 +3,7 @@ package io.ssrl;
 import io.ssrl.csvhandler.CSVUtils;
 import io.ssrl.models.Car;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeAll;
@@ -16,7 +17,9 @@ class AppTest {
 
     @BeforeAll
     static void setup() {
-        System.setProperty("CSV_PATH", "JUnitTestGarage.csv");
+        String csvPath = "JUnitTestGarage.csv";
+        System.setProperty("CSV_PATH", csvPath);
+        new File(csvPath).delete();
         App.main(new String[] {"HardReset"});
         outContent = new ByteArrayOutputStream();
     }

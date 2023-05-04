@@ -4,6 +4,7 @@ import io.ssrl.csvhandler.CSVUtils;
 import io.ssrl.models.Car;
 import io.ssrl.models.Moto;
 import io.ssrl.models.Vehicle;
+import java.io.File;
 import java.util.ArrayList;
 
 public final class App {
@@ -81,9 +82,15 @@ public final class App {
 
     public static void main(String[] args) {
 
+        File file = new File("CSVGarage.csv");
+        if (!file.exists()) {
+            CSVUtils.hardResetToExampleFileProvided();
+        }
+
         if (args.length < 1) {
-            System.out.println("INSTRUCTIONS");
+            System.out.println(INSTRUCTIONS);
             CSVUtils.printAllVehicles();
+            System.out.print("\nProva ad inserire 'help' come argomento per il programma.");
         }
 
         if (args.length == 1) {
