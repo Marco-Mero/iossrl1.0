@@ -62,10 +62,10 @@ public abstract class Vehicle implements Validator {
 
     public static Vehicle getVehicleFromCSVRecord(String csvRecord) throws IllegalArgumentException {
 <span class="fc" id="L64">        String[] fieldArray = csvRecord.split(&quot;;&quot;);</span>
-<span class="pc bpc" id="L65" title="1 of 2 branches missed.">        if (fieldArray.length == ALLOWED_FIELDS) {</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        if (fieldArray.length == ALLOWED_FIELDS) {</span>
 <span class="fc" id="L66">            double price = Double.parseDouble(fieldArray[PRICE_FIELD_INDEX]);</span>
 <span class="fc" id="L67">            int wheels = Integer.parseInt(fieldArray[WHEELS_FIELD_INDEX]);</span>
-<span class="pc bpc" id="L68" title="1 of 3 branches missed.">            switch (wheels) {</span>
+<span class="fc bfc" id="L68" title="All 3 branches covered.">            switch (wheels) {</span>
                 case Car.WHEEL_NUMBER:
 <span class="fc" id="L70">                    return new Car(fieldArray[BRAND_FIELD_INDEX], fieldArray[MODEL_FIELD_INDEX], price,</span>
 <span class="fc" id="L71">                            fieldArray[PLATE_FIELD_INDEX]);</span>
@@ -73,11 +73,11 @@ public abstract class Vehicle implements Validator {
 <span class="fc" id="L73">                    return new Moto(fieldArray[BRAND_FIELD_INDEX], fieldArray[MODEL_FIELD_INDEX], price,</span>
 <span class="fc" id="L74">                            fieldArray[PLATE_FIELD_INDEX]);</span>
                 default:
-<span class="nc" id="L76">                    throw new IllegalArgumentException(&quot;Vehicles with &quot; + wheels + &quot;are not defined&quot;);</span>
+<span class="fc" id="L76">                    throw new IllegalArgumentException(&quot;Vehicles with &quot; + wheels + &quot;are not defined&quot;);</span>
             }
         }
-<span class="nc" id="L79">        throw new IllegalArgumentException(</span>
-<span class="nc" id="L80">                &quot;Vehicles String[] must have 5 fields (brand, model, price, plate, wheel_number)&quot;);</span>
+<span class="fc" id="L79">        throw new IllegalArgumentException(</span>
+<span class="fc" id="L80">                &quot;Vehicles String[] must have 5 fields (brand, model, price, plate, wheel_number)&quot;);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -6,8 +6,8 @@ public interface Validator {
     float MOTO_PLATE_LENGTH = 6;
 
     static void validatePrice(double price) {
-<span class="pc bpc" id="L9" title="1 of 2 branches missed.">        if (price &lt; MIN_PRICE) {</span>
-<span class="nc" id="L10">            throw new IllegalArgumentException(&quot;Price cannot be lower than&quot; + MIN_PRICE);</span>
+<span class="fc bfc" id="L9" title="All 2 branches covered.">        if (price &lt; MIN_PRICE) {</span>
+<span class="fc" id="L10">            throw new IllegalArgumentException(&quot;Price cannot be lower than&quot; + MIN_PRICE);</span>
         }
 <span class="fc" id="L12">    }</span>
 
@@ -28,24 +28,25 @@ public interface Validator {
 <span class="fc bfc" id="L28" title="All 2 branches covered.">        if (plate.length() != CAR_PLATE_LENGTH) {</span>
 <span class="fc" id="L29">            throw new IllegalArgumentException(&quot;Expected 7 character long plate number.&quot;);</span>
         }
-<span class="pc bpc" id="L31" title="1 of 2 branches missed.">        if (plate.matches(&quot;[IOQU]&quot;)) {</span>
-<span class="nc" id="L32">            throw new IllegalArgumentException(&quot;License plate cannot contain I O Q U.&quot;);</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        if (plate.matches(&quot;(?i).*[ioqu].*&quot;)) {</span>
+<span class="fc" id="L32">            throw new IllegalArgumentException(&quot;License plate cannot contain I O Q U.&quot;);</span>
         }
-<span class="pc bpc" id="L34" title="3 of 4 branches missed.">        if (!Character.isAlphabetic(plate.charAt(0)) &amp;&amp; Character.isAlphabetic(plate.charAt(1))) {</span>
-<span class="nc" id="L35">            throw new IllegalArgumentException(&quot;License plate does not begin with two letters.&quot;);</span>
+<span class="pc bpc" id="L34" title="1 of 4 branches missed.">        if (!Character.isAlphabetic(plate.charAt(0)) || !Character.isAlphabetic(plate.charAt(1))) {</span>
+<span class="fc" id="L35">            throw new IllegalArgumentException(&quot;License plate does not begin with two letters.&quot;);</span>
         }
 <span class="fc" id="L37">    }</span>
 
-    static void validateMotoPlate(String plate) throws IllegalArgumentException {
-<span class="fc bfc" id="L40" title="All 2 branches covered.">        if (plate.length() != MOTO_PLATE_LENGTH) {</span>
-<span class="fc" id="L41">            throw new IllegalArgumentException(plate + &quot;Expected 6 character long plate number.&quot;);</span>
+    static void validateMotoPlate(String inputtedplate) throws IllegalArgumentException {
+<span class="fc" id="L40">        String plate = inputtedplate.toLowerCase();</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        if (plate.length() != MOTO_PLATE_LENGTH) {</span>
+<span class="fc" id="L42">            throw new IllegalArgumentException(plate + &quot;Expected 6 character long plate number.&quot;);</span>
         }
-<span class="pc bpc" id="L43" title="1 of 2 branches missed.">        if (plate.matches(&quot;[IOQU]&quot;)) {</span>
-<span class="nc" id="L44">            throw new IllegalArgumentException(&quot;Licence plate cannot contain I O Q U.&quot;);</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        if (plate.matches(&quot;(?i).*[ioqu].*&quot;)) {</span>
+<span class="fc" id="L45">            throw new IllegalArgumentException(&quot;Licence plate cannot contain I O Q U.&quot;);</span>
         }
-<span class="pc bpc" id="L46" title="3 of 4 branches missed.">        if (!Character.isAlphabetic(plate.charAt(0)) &amp;&amp; Character.isAlphabetic(plate.charAt(1))) {</span>
-<span class="nc" id="L47">            throw new IllegalArgumentException(&quot;Licence plate does not begin with two letters.&quot;);</span>
+<span class="pc bpc" id="L47" title="1 of 4 branches missed.">        if (!Character.isAlphabetic(plate.charAt(0)) || !Character.isAlphabetic(plate.charAt(1))) {</span>
+<span class="fc" id="L48">            throw new IllegalArgumentException(&quot;Licence plate does not begin with two letters.&quot;);</span>
         }
-<span class="fc" id="L49">    }</span>
+<span class="fc" id="L50">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

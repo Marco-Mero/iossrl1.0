@@ -28,22 +28,23 @@ public interface Validator {
         if (plate.length() != CAR_PLATE_LENGTH) {
             throw new IllegalArgumentException("Expected 7 character long plate number.");
         }
-        if (plate.matches("[IOQU]")) {
+        if (plate.matches("(?i).*[ioqu].*")) {
             throw new IllegalArgumentException("License plate cannot contain I O Q U.");
         }
-        if (!Character.isAlphabetic(plate.charAt(0)) && Character.isAlphabetic(plate.charAt(1))) {
+        if (!Character.isAlphabetic(plate.charAt(0)) || !Character.isAlphabetic(plate.charAt(1))) {
             throw new IllegalArgumentException("License plate does not begin with two letters.");
         }
     }
 
-    static void validateMotoPlate(String plate) throws IllegalArgumentException {
+    static void validateMotoPlate(String inputtedplate) throws IllegalArgumentException {
+        String plate = inputtedplate.toLowerCase();
         if (plate.length() != MOTO_PLATE_LENGTH) {
             throw new IllegalArgumentException(plate + "Expected 6 character long plate number.");
         }
-        if (plate.matches("[IOQU]")) {
+        if (plate.matches("(?i).*[ioqu].*")) {
             throw new IllegalArgumentException("Licence plate cannot contain I O Q U.");
         }
-        if (!Character.isAlphabetic(plate.charAt(0)) && Character.isAlphabetic(plate.charAt(1))) {
+        if (!Character.isAlphabetic(plate.charAt(0)) || !Character.isAlphabetic(plate.charAt(1))) {
             throw new IllegalArgumentException("Licence plate does not begin with two letters.");
         }
     }

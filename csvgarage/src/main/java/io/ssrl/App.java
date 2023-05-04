@@ -55,8 +55,8 @@ public final class App {
                 System.out.println(HELP);
                 break;
             case "Standardtest.123":
-                Vehicle fiesta = new Car("ford", "fiesta", TEST_PRICE, "pl473id");
-                Vehicle harley = new Moto("harley", "moto", TEST_PRICE, "pl47id");
+                Vehicle fiesta = new Car("ford", "fiesta", TEST_PRICE, "pl473ed");
+                Vehicle harley = new Moto("harley", "moto", TEST_PRICE, "pl47ad");
                 standardTest(fiesta, harley, "io000sr", "1233.0");
                 break;
             case "HardReset":
