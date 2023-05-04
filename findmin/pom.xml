@@ -80,7 +80,6 @@
         <configuration>
           <configLocation>${project.basedir}/checkstyle.xml</configLocation>
           <includeTestSourceDirectory>true</includeTestSourceDirectory>
-          <autoFix>true</autoFix>
           <skip>${skipTests}</skip>
         </configuration>
         <executions>
