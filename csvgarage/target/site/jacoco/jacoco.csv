@@ -5,4 +5,4 @@ csvgarage,io.ssrl.models,Validator,5,104,3,18,1,24,3,12,0,4
 csvgarage,io.ssrl.models,Car,0,9,0,0,0,3,0,2,0,2
 csvgarage,io.ssrl,App.new ArrayList() {...},0,11,0,0,0,3,0,1,0,1
 csvgarage,io.ssrl,App,0,227,2,24,0,58,2,18,0,5
-csvgarage,io.ssrl.csvhandler,CSVUtils,105,327,9,33,20,63,9,22,0,10
+csvgarage,io.ssrl.csvhandler,CSVUtils,83,349,8,34,18,65,8,23,0,10

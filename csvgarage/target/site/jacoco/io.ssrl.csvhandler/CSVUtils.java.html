@@ -46,8 +46,8 @@ public final class CSVUtils {
                 }
             }
 
-<span class="pc bpc" id="L49" title="2 of 4 branches missed.">            if (currentVehicle == null &amp;&amp; vehicleList.size() == 0) {</span>
-<span class="nc" id="L50">                vehicleList.add(&quot;Nessun veicolo a &quot; + wheelNumber + &quot; ruote nel garage.&quot;);</span>
+<span class="pc bpc" id="L49" title="1 of 4 branches missed.">            if (currentVehicle == null &amp;&amp; vehicleList.size() == 0) {</span>
+<span class="fc" id="L50">                vehicleList.add(&quot;Nessun veicolo a &quot; + wheelNumber + &quot; ruote nel garage.&quot;);</span>
             }
 
 <span class="fc" id="L53">            bufferedReader.close();</span>
@@ -146,8 +146,8 @@ public final class CSVUtils {
     public static void addVehicleToCSV(String vehicleString) {
         try {
 <span class="fc" id="L148">            addVehicleToCSV(Vehicle.getVehicleFromCSVRecord(vehicleString));</span>
-<span class="pc" id="L149">        } catch (IllegalArgumentException e) {</span>
-<span class="nc" id="L150">            System.out.println(&quot;Veicolo non ben formattato non aggiunto &quot; + vehicleString);</span>
+<span class="fc" id="L149">        } catch (IllegalArgumentException e) {</span>
+<span class="fc" id="L150">            System.out.println(&quot;Veicolo non ben formattato non aggiunto &quot; + vehicleString);</span>
         }
 <span class="fc" id="L152">    }</span>
 
