@@ -15,13 +15,9 @@ public abstract class Vehicle implements Validator {
     private double price;
 
     public Vehicle(String inputtedBrand, String model, double price, String inputtedPlate) {
-        plate = plate.replaceAll("[\\s-]+", "");
-        try {
-            Validator.validatePlate(plate, getVehicleType());
-            Validator.validatePrice(price);
-        } catch (IllegalAccessException e) {
-            System.err.println(" Warn! " + getVehicleType() + e.getMessage());
-        }
+        plate = inputtedPlate.replaceAll("[\\s-]+", "");
+        Validator.validatePlate(plate, getVehicleType());
+        Validator.validatePrice(price);
         this.setAttributes(inputtedBrand.trim().toLowerCase(), model, price, plate);
     }
 
@@ -71,10 +67,10 @@ public abstract class Vehicle implements Validator {
             int wheels = Integer.parseInt(fieldArray[WHEELS_FIELD_INDEX]);
             switch (wheels) {
                 case Car.WHEEL_NUMBER:
-                    return new Moto(fieldArray[BRAND_FIELD_INDEX], fieldArray[MODEL_FIELD_INDEX], price,
+                    return new Car(fieldArray[BRAND_FIELD_INDEX], fieldArray[MODEL_FIELD_INDEX], price,
                             fieldArray[PLATE_FIELD_INDEX]);
                 case Moto.WHEEL_NUMBER:
-                    return new Car(fieldArray[BRAND_FIELD_INDEX], fieldArray[MODEL_FIELD_INDEX], price,
+                    return new Moto(fieldArray[BRAND_FIELD_INDEX], fieldArray[MODEL_FIELD_INDEX], price,
                             fieldArray[PLATE_FIELD_INDEX]);
                 default:
                     throw new IllegalArgumentException("Vehicles with " + wheels + "are not defined");

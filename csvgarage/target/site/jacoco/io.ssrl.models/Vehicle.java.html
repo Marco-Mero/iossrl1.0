@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Vehicle.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">findmin</a> &gt; <a href="index.source.html" class="el_package">io.ssrl.models</a> &gt; <span class="el_source">Vehicle.java</span></div><h1>Vehicle.java</h1><pre class="source lang-java linenums">package io.ssrl.models;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Vehicle.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">csvgarage</a> &gt; <a href="index.source.html" class="el_package">io.ssrl.models</a> &gt; <span class="el_source">Vehicle.java</span></div><h1>Vehicle.java</h1><pre class="source lang-java linenums">package io.ssrl.models;
 
 import java.util.StringJoiner;
 
@@ -14,74 +14,70 @@ public abstract class Vehicle implements Validator {
     private String plate;
     private double price;
 
-<span class="nc" id="L17">    public Vehicle(String inputtedBrand, String model, double price, String inputtedPlate) {</span>
-<span class="nc" id="L18">        plate = plate.replaceAll(&quot;[\\s-]+&quot;, &quot;&quot;);</span>
-        try {
-<span class="nc" id="L20">            Validator.validatePlate(plate, getVehicleType());</span>
-<span class="nc" id="L21">            Validator.validatePrice(price);</span>
-<span class="nc" id="L22">        } catch (IllegalAccessException e) {</span>
-<span class="nc" id="L23">            System.err.println(&quot; Warn! &quot; + getVehicleType() + e.getMessage());</span>
-<span class="nc" id="L24">        }</span>
-<span class="nc" id="L25">        this.setAttributes(inputtedBrand.trim().toLowerCase(), model, price, plate);</span>
-<span class="nc" id="L26">    }</span>
+<span class="fc" id="L17">    public Vehicle(String inputtedBrand, String model, double price, String inputtedPlate) {</span>
+<span class="fc" id="L18">        plate = inputtedPlate.replaceAll(&quot;[\\s-]+&quot;, &quot;&quot;);</span>
+<span class="fc" id="L19">        Validator.validatePlate(plate, getVehicleType());</span>
+<span class="fc" id="L20">        Validator.validatePrice(price);</span>
+<span class="fc" id="L21">        this.setAttributes(inputtedBrand.trim().toLowerCase(), model, price, plate);</span>
+<span class="fc" id="L22">    }</span>
 
     private void setAttributes(String newBrand, String newModel, double newPrice, String newPlate) {
-<span class="nc" id="L29">        this.brand = newBrand;</span>
-<span class="nc" id="L30">        this.model = newModel;</span>
-<span class="nc" id="L31">        this.plate = newPlate;</span>
-<span class="nc" id="L32">        this.price = newPrice;</span>
-<span class="nc" id="L33">    }</span>
+<span class="fc" id="L25">        this.brand = newBrand;</span>
+<span class="fc" id="L26">        this.model = newModel;</span>
+<span class="fc" id="L27">        this.plate = newPlate;</span>
+<span class="fc" id="L28">        this.price = newPrice;</span>
+<span class="fc" id="L29">    }</span>
 
     abstract int getWheelNumber();
 
     public String getBrand() {
-<span class="nc" id="L38">        return brand;</span>
+<span class="fc" id="L34">        return brand;</span>
     }
 
     public String getModel() {
-<span class="nc" id="L42">        return model;</span>
+<span class="fc" id="L38">        return model;</span>
     }
 
     public String getPlate() {
-<span class="nc" id="L46">        return plate;</span>
+<span class="fc" id="L42">        return plate;</span>
     }
 
     public double getPrice() {
-<span class="nc" id="L50">        return price;</span>
+<span class="fc" id="L46">        return price;</span>
     }
 
     public String getVehicleType() {
-<span class="nc" id="L54">        return this.getClass().getSimpleName();</span>
+<span class="fc" id="L50">        return this.getClass().getSimpleName();</span>
     }
 
     public String toCSVRecord() {
-<span class="nc" id="L58">        StringJoiner record = new StringJoiner(&quot;;&quot;);</span>
-<span class="nc" id="L59">        record.add(getBrand())</span>
-<span class="nc" id="L60">                .add(getModel())</span>
-<span class="nc" id="L61">                .add(Double.toString(getPrice()))</span>
-<span class="nc" id="L62">                .add(getPlate())</span>
-<span class="nc" id="L63">                .add(Integer.toString(getWheelNumber()));</span>
-<span class="nc" id="L64">        return record.toString();</span>
+<span class="fc" id="L54">        StringJoiner record = new StringJoiner(&quot;;&quot;);</span>
+<span class="fc" id="L55">        record.add(getBrand())</span>
+<span class="fc" id="L56">                .add(getModel())</span>
+<span class="fc" id="L57">                .add(Double.toString(getPrice()))</span>
+<span class="fc" id="L58">                .add(getPlate())</span>
+<span class="fc" id="L59">                .add(Integer.toString(getWheelNumber()));</span>
+<span class="fc" id="L60">        return record.toString();</span>
     }
 
     public static Vehicle getVehicleFromCSVRecord(String csvRecord) throws IllegalArgumentException {
-<span class="nc" id="L68">        String[] fieldArray = csvRecord.split(&quot;;&quot;);</span>
-<span class="nc bnc" id="L69" title="All 2 branches missed.">        if (fieldArray.length == ALLOWED_FIELDS) {</span>
-<span class="nc" id="L70">            double price = Double.parseDouble(fieldArray[PRICE_FIELD_INDEX]);</span>
-<span class="nc" id="L71">            int wheels = Integer.parseInt(fieldArray[WHEELS_FIELD_INDEX]);</span>
-<span class="nc bnc" id="L72" title="All 3 branches missed.">            switch (wheels) {</span>
+<span class="fc" id="L64">        String[] fieldArray = csvRecord.split(&quot;;&quot;);</span>
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">        if (fieldArray.length == ALLOWED_FIELDS) {</span>
+<span class="fc" id="L66">            double price = Double.parseDouble(fieldArray[PRICE_FIELD_INDEX]);</span>
+<span class="fc" id="L67">            int wheels = Integer.parseInt(fieldArray[WHEELS_FIELD_INDEX]);</span>
+<span class="pc bpc" id="L68" title="1 of 3 branches missed.">            switch (wheels) {</span>
                 case Car.WHEEL_NUMBER:
-<span class="nc" id="L74">                    return new Moto(fieldArray[BRAND_FIELD_INDEX], fieldArray[MODEL_FIELD_INDEX], price,</span>
-                            fieldArray[PLATE_FIELD_INDEX]);
+<span class="fc" id="L70">                    return new Car(fieldArray[BRAND_FIELD_INDEX], fieldArray[MODEL_FIELD_INDEX], price,</span>
+<span class="fc" id="L71">                            fieldArray[PLATE_FIELD_INDEX]);</span>
                 case Moto.WHEEL_NUMBER:
-<span class="nc" id="L77">                    return new Car(fieldArray[BRAND_FIELD_INDEX], fieldArray[MODEL_FIELD_INDEX], price,</span>
-                            fieldArray[PLATE_FIELD_INDEX]);
+<span class="fc" id="L73">                    return new Moto(fieldArray[BRAND_FIELD_INDEX], fieldArray[MODEL_FIELD_INDEX], price,</span>
+<span class="fc" id="L74">                            fieldArray[PLATE_FIELD_INDEX]);</span>
                 default:
-<span class="nc" id="L80">                    throw new IllegalArgumentException(&quot;Vehicles with &quot; + wheels + &quot;are not defined&quot;);</span>
+<span class="nc" id="L76">                    throw new IllegalArgumentException(&quot;Vehicles with &quot; + wheels + &quot;are not defined&quot;);</span>
             }
         }
-<span class="nc" id="L83">        throw new IllegalArgumentException(</span>
-                &quot;Vehicles String[] must have 5 fields (brand, model, price, plate, wheel_number)&quot;);
+<span class="nc" id="L79">        throw new IllegalArgumentException(</span>
+<span class="nc" id="L80">                &quot;Vehicles String[] must have 5 fields (brand, model, price, plate, wheel_number)&quot;);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

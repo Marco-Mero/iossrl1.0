@@ -9,14 +9,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public final class CSVUtils {
+    private static final String DEFAULTS_CSV = "marca;modello;prezzo;targa;numero_ruote\n"
+            + "fiat;panda;14000.0;pd000xy;4\n"
+            + "ducati;monster;12000.0;dt000rr;2\n"
+            + "iveco;aaa;100000.0;iv9999dt;4\n"
+            + "ford;focus;35000.0;io000sr;4\n"
+            + "honda;hornet;5000.0;ho987dg;2\n";
 
-    private static final String CSV_PATH = "CSVGarage.csv";
-    public static final String DEFAULTS_CSV = "marca;modello;prezzo;targa;numero_ruote\n" +
-            "fiat;panda;14000.0;pd000xy;4\n" +
-            "ducati;monster;12000.0;dt000rr;2\n" +
-            "iveco;aaa;100000.0;iv9999dt;4\n" +
-            "ford;focus;35000.0;io000sr;4\n" +
-            "honda;hornet;5000.0;ho987dg;2\n";
+    private static final String CSV_PATH = System.getProperty("CSV_PATH", "CSVGarage.csv");
 
     private CSVUtils() {
     }
@@ -31,21 +31,6 @@ public final class CSVUtils {
         } catch (IOException e) {
             System.err.println("Error reading CSV file: " + e.getMessage());
         }
-    }
-
-    public static ArrayList<Vehicle> getAllVehicles() {
-        ArrayList<Vehicle> vehicleList = new ArrayList<Vehicle>();
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(CSV_PATH))) {
-            Vehicle currentVehicle;
-            while ((currentVehicle = Vehicle.getVehicleFromCSVRecord(bufferedReader.readLine())) != null) {
-                vehicleList.add(currentVehicle);
-            }
-            bufferedReader.close();
-
-        } catch (IOException e) {
-            System.err.println("Error reading CSV file: " + e.getMessage());
-        }
-        return vehicleList;
     }
 
     public static ArrayList<String> listFromCSVByWheelNumber(int wheelNumber) {
@@ -164,8 +149,11 @@ public final class CSVUtils {
     }
 
     public static void hardResetToExampleFileProvided() {
+        hardResetToExampleFileProvided(CSV_PATH);
+    }
 
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(CSV_PATH))) {
+    public static void hardResetToExampleFileProvided(String path) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path))) {
             bufferedWriter.write(DEFAULTS_CSV);
         } catch (IOException e) {
             System.out.println("reset failed.");

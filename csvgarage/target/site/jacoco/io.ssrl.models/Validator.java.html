@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Validator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">findmin</a> &gt; <a href="index.source.html" class="el_package">io.ssrl.models</a> &gt; <span class="el_source">Validator.java</span></div><h1>Validator.java</h1><pre class="source lang-java linenums">package io.ssrl.models;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Validator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">csvgarage</a> &gt; <a href="index.source.html" class="el_package">io.ssrl.models</a> &gt; <span class="el_source">Validator.java</span></div><h1>Validator.java</h1><pre class="source lang-java linenums">package io.ssrl.models;
 
 public interface Validator {
     float MIN_PRICE = 1;
@@ -6,46 +6,46 @@ public interface Validator {
     float MOTO_PLATE_LENGTH = 6;
 
     static void validatePrice(double price) {
-<span class="nc bnc" id="L9" title="All 2 branches missed.">        if (price &lt; MIN_PRICE) {</span>
+<span class="pc bpc" id="L9" title="1 of 2 branches missed.">        if (price &lt; MIN_PRICE) {</span>
 <span class="nc" id="L10">            throw new IllegalArgumentException(&quot;Price cannot be lower than&quot; + MIN_PRICE);</span>
         }
-<span class="nc" id="L12">    }</span>
+<span class="fc" id="L12">    }</span>
 
-    static void validatePlate(String plate, String vehicleType) throws IllegalAccessException {
-<span class="nc bnc" id="L15" title="All 3 branches missed.">        switch (vehicleType) {</span>
+    static void validatePlate(String plate, String vehicleType) {
+<span class="pc bpc" id="L15" title="1 of 3 branches missed.">        switch (vehicleType) {</span>
             case &quot;Car&quot;:
-<span class="nc" id="L17">                Validator.validateCarPlate(plate);</span>
-<span class="nc" id="L18">                break;</span>
+<span class="fc" id="L17">                Validator.validateCarPlate(plate);</span>
+<span class="fc" id="L18">                break;</span>
             case &quot;Moto&quot;:
-<span class="nc" id="L20">                Validator.validateMotoPlate(plate);</span>
-<span class="nc" id="L21">                break;</span>
+<span class="fc" id="L20">                Validator.validateMotoPlate(plate);</span>
+<span class="fc" id="L21">                break;</span>
             default:
-<span class="nc" id="L23">                throw new IllegalAccessError(&quot;Vehicle type &quot; + vehicleType + &quot; cannot be validated.&quot;);</span>
+<span class="nc" id="L23">                throw new IllegalArgumentException(&quot;Unknown vehicle type.&quot;);</span>
         }
-<span class="nc" id="L25">    }</span>
+<span class="fc" id="L25">    }</span>
 
     static void validateCarPlate(String plate) throws IllegalArgumentException {
-<span class="nc bnc" id="L28" title="All 2 branches missed.">        if (plate.length() != CAR_PLATE_LENGTH) {</span>
-<span class="nc" id="L29">            throw new IllegalArgumentException(&quot;Expected 7 character long plate number.&quot;);</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (plate.length() != CAR_PLATE_LENGTH) {</span>
+<span class="fc" id="L29">            throw new IllegalArgumentException(&quot;Expected 7 character long plate number.&quot;);</span>
         }
-<span class="nc bnc" id="L31" title="All 2 branches missed.">        if (plate.matches(&quot;[IOQU]&quot;)) {</span>
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">        if (plate.matches(&quot;[IOQU]&quot;)) {</span>
 <span class="nc" id="L32">            throw new IllegalArgumentException(&quot;License plate cannot contain I O Q U.&quot;);</span>
         }
-<span class="nc bnc" id="L34" title="All 4 branches missed.">        if (!Character.isAlphabetic(plate.charAt(0)) &amp;&amp; Character.isAlphabetic(plate.charAt(1))) {</span>
+<span class="pc bpc" id="L34" title="3 of 4 branches missed.">        if (!Character.isAlphabetic(plate.charAt(0)) &amp;&amp; Character.isAlphabetic(plate.charAt(1))) {</span>
 <span class="nc" id="L35">            throw new IllegalArgumentException(&quot;License plate does not begin with two letters.&quot;);</span>
         }
-<span class="nc" id="L37">    }</span>
+<span class="fc" id="L37">    }</span>
 
     static void validateMotoPlate(String plate) throws IllegalArgumentException {
-<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (plate.length() != MOTO_PLATE_LENGTH) {</span>
-<span class="nc" id="L41">            throw new IllegalArgumentException(plate + &quot;Expected 6 character long plate number.&quot;);</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        if (plate.length() != MOTO_PLATE_LENGTH) {</span>
+<span class="fc" id="L41">            throw new IllegalArgumentException(plate + &quot;Expected 6 character long plate number.&quot;);</span>
         }
-<span class="nc bnc" id="L43" title="All 2 branches missed.">        if (plate.matches(&quot;[IOQU]&quot;)) {</span>
+<span class="pc bpc" id="L43" title="1 of 2 branches missed.">        if (plate.matches(&quot;[IOQU]&quot;)) {</span>
 <span class="nc" id="L44">            throw new IllegalArgumentException(&quot;Licence plate cannot contain I O Q U.&quot;);</span>
         }
-<span class="nc bnc" id="L46" title="All 4 branches missed.">        if (!Character.isAlphabetic(plate.charAt(0)) &amp;&amp; Character.isAlphabetic(plate.charAt(1))) {</span>
+<span class="pc bpc" id="L46" title="3 of 4 branches missed.">        if (!Character.isAlphabetic(plate.charAt(0)) &amp;&amp; Character.isAlphabetic(plate.charAt(1))) {</span>
 <span class="nc" id="L47">            throw new IllegalArgumentException(&quot;Licence plate does not begin with two letters.&quot;);</span>
         }
-<span class="nc" id="L49">    }</span>
+<span class="fc" id="L49">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

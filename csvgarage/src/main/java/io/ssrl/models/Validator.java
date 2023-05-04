@@ -11,7 +11,7 @@ public interface Validator {
         }
     }
 
-    static void validatePlate(String plate, String vehicleType) throws IllegalAccessException {
+    static void validatePlate(String plate, String vehicleType) {
         switch (vehicleType) {
             case "Car":
                 Validator.validateCarPlate(plate);
@@ -20,7 +20,7 @@ public interface Validator {
                 Validator.validateMotoPlate(plate);
                 break;
             default:
-                throw new IllegalAccessError("Vehicle type " + vehicleType + " cannot be validated.");
+                throw new IllegalArgumentException("Unknown vehicle type.");
         }
     }
 
