@@ -46,7 +46,7 @@ public final class CSVUtils {
                 }
             }
 
-<span class="pc bpc" id="L49" title="1 of 4 branches missed.">            if (currentVehicle == null &amp;&amp; vehicleList.size() == 0) {</span>
+<span class="pc bpc" id="L49" title="3 of 4 branches missed.">            if (currentVehicle == null || vehicleList.size() == 0) {</span>
 <span class="fc" id="L50">                vehicleList.add(&quot;Nessun veicolo a &quot; + wheelNumber + &quot; ruote nel garage.&quot;);</span>
             }
 
@@ -68,102 +68,101 @@ public final class CSVUtils {
         }
 
 <span class="fc" id="L70">        try (</span>
-
-<span class="fc" id="L72">                BufferedReader bufferedReader = new BufferedReader(new FileReader(CSV_PATH))) {</span>
+<span class="fc" id="L71">                BufferedReader bufferedReader = new BufferedReader(new FileReader(CSV_PATH))) {</span>
             do {
-<span class="fc" id="L74">                currentVehicle = bufferedReader.readLine();</span>
-<span class="fc" id="L75">                lineNumber++;</span>
-<span class="pc bpc" id="L76" title="1 of 4 branches missed.">            } while (currentVehicle != null &amp;&amp; !currentVehicle.contains(&quot;;&quot; + plate + &quot;;&quot;));</span>
-<span class="pc bpc" id="L77" title="1 of 2 branches missed.">            if (currentVehicle == null) {</span>
-<span class="nc" id="L78">                lineNumber = 0;</span>
-<span class="nc" id="L79">                currentVehicle = msg;</span>
+<span class="fc" id="L73">                currentVehicle = bufferedReader.readLine();</span>
+<span class="fc" id="L74">                lineNumber++;</span>
+<span class="fc bfc" id="L75" title="All 4 branches covered.">            } while (currentVehicle != null &amp;&amp; !currentVehicle.contains(&quot;;&quot; + plate + &quot;;&quot;));</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">            if (currentVehicle == null) {</span>
+<span class="fc" id="L77">                lineNumber = 0;</span>
+<span class="fc" id="L78">                currentVehicle = msg;</span>
             }
 
-<span class="nc" id="L82">        } catch (IOException e) {</span>
-<span class="nc" id="L83">            System.err.println(&quot;Error reading CSV file: &quot; + e.getMessage());</span>
+<span class="nc" id="L81">        } catch (IOException e) {</span>
+<span class="nc" id="L82">            System.err.println(&quot;Error reading CSV file: &quot; + e.getMessage());</span>
         }
 
-<span class="pc bpc" id="L86" title="1 of 2 branches missed.">        System.out.println((lineNumber == 0) ? &quot;&quot; : &quot;Trovato a riga: &quot; + lineNumber);</span>
-<span class="fc" id="L87">        return currentVehicle;</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">        System.out.println((lineNumber == 0) ? &quot;&quot; : &quot;Trovato a riga: &quot; + lineNumber);</span>
+<span class="fc" id="L86">        return currentVehicle;</span>
     }
 
     public static ArrayList&lt;String&gt; listFromCSVByPrice(String inputtedPrice) {
-<span class="fc bfc" id="L91" title="All 2 branches covered.">        if (inputtedPrice == null) {</span>
-<span class="fc" id="L92">            throw new IllegalArgumentException(&quot;Price must not be null.&quot;);</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">        if (inputtedPrice == null) {</span>
+<span class="fc" id="L91">            throw new IllegalArgumentException(&quot;Price must not be null.&quot;);</span>
         }
-<span class="fc" id="L94">        String priceString = inputtedPrice.replaceAll(&quot;[^\\d\\.]&quot;, &quot;&quot;);</span>
-<span class="fc" id="L95">        ArrayList&lt;String&gt; vehicleList = new ArrayList&lt;String&gt;();</span>
-<span class="fc" id="L96">        String msg = &quot;Non sono presenti veicoli a costo &quot; + priceString + &quot;$&quot;;</span>
-<span class="fc" id="L97">        String currentVehicle = msg;</span>
+<span class="fc" id="L93">        String priceString = inputtedPrice.replaceAll(&quot;[^\\d\\.]&quot;, &quot;&quot;);</span>
+<span class="fc" id="L94">        ArrayList&lt;String&gt; vehicleList = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L95">        String msg = &quot;Non sono presenti veicoli a costo &quot; + priceString + &quot;$&quot;;</span>
+<span class="fc" id="L96">        String currentVehicle = msg;</span>
 
-<span class="fc" id="L99">        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(CSV_PATH))) {</span>
-<span class="fc bfc" id="L100" title="All 2 branches covered.">            while ((currentVehicle = bufferedReader.readLine()) != null) {</span>
-<span class="fc bfc" id="L101" title="All 2 branches covered.">                if (currentVehicle.contains(&quot;;&quot; + priceString + &quot;;&quot;)) {</span>
-<span class="fc" id="L102">                    vehicleList.add(currentVehicle);</span>
+<span class="fc" id="L98">        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(CSV_PATH))) {</span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">            while ((currentVehicle = bufferedReader.readLine()) != null) {</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">                if (currentVehicle.contains(&quot;;&quot; + priceString + &quot;;&quot;)) {</span>
+<span class="fc" id="L101">                    vehicleList.add(currentVehicle);</span>
                 }
             }
-<span class="pc bpc" id="L105" title="2 of 4 branches missed.">            if (currentVehicle == null &amp;&amp; vehicleList.size() == 0) {</span>
-<span class="nc" id="L106">                vehicleList.add(msg);</span>
+<span class="pc bpc" id="L104" title="2 of 4 branches missed.">            if (currentVehicle == null &amp;&amp; vehicleList.size() == 0) {</span>
+<span class="nc" id="L105">                vehicleList.add(msg);</span>
             }
-<span class="nc" id="L108">        } catch (IOException e) {</span>
-<span class="nc" id="L109">            System.err.println(&quot;IOException:&quot; + e.getMessage());</span>
+<span class="nc" id="L107">        } catch (IOException e) {</span>
+<span class="nc" id="L108">            System.err.println(&quot;IOException:&quot; + e.getMessage());</span>
         }
 
-<span class="fc" id="L112">        return vehicleList;</span>
+<span class="fc" id="L111">        return vehicleList;</span>
     }
 
     public static boolean isInCSV(String plate) {
         String currentVehicle;
-<span class="fc" id="L117">        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(CSV_PATH))) {</span>
+<span class="fc" id="L116">        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(CSV_PATH))) {</span>
             do {
-<span class="fc" id="L119">                currentVehicle = bufferedReader.readLine();</span>
-<span class="fc bfc" id="L120" title="All 4 branches covered.">            } while (currentVehicle != null &amp;&amp; !currentVehicle.contains(plate));</span>
-<span class="fc bfc" id="L121" title="All 2 branches covered.">            if (currentVehicle != null) {</span>
-<span class="fc" id="L122">                return true;</span>
+<span class="fc" id="L118">                currentVehicle = bufferedReader.readLine();</span>
+<span class="fc bfc" id="L119" title="All 4 branches covered.">            } while (currentVehicle != null &amp;&amp; !currentVehicle.contains(plate));</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">            if (currentVehicle != null) {</span>
+<span class="fc" id="L121">                return true;</span>
             }
-<span class="nc" id="L124">        } catch (IOException e) {</span>
-<span class="nc" id="L125">            System.err.println(&quot;Error reading CSV file: &quot; + e.getMessage());</span>
+<span class="nc" id="L123">        } catch (IOException e) {</span>
+<span class="nc" id="L124">            System.err.println(&quot;Error reading CSV file: &quot; + e.getMessage());</span>
         }
-<span class="fc" id="L127">        return false;</span>
+<span class="fc" id="L126">        return false;</span>
     }
 
     public static void addVehicleToCSV(Vehicle vehicle) {
-<span class="fc" id="L131">        String duplicateMsg = &quot;Veicolo duplicato non aggiunto.&quot;;</span>
-<span class="fc" id="L132">        try (FileWriter fileWriter = new FileWriter(CSV_PATH, true)) {</span>
-<span class="pc bpc" id="L133" title="1 of 2 branches missed.">            if (!isInCSV(vehicle.getPlate())) {</span>
-<span class="fc" id="L134">                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);</span>
-<span class="fc" id="L135">                bufferedWriter.write(vehicle.toCSVRecord() + &quot;\n&quot;);</span>
-<span class="fc" id="L136">                bufferedWriter.close();</span>
-<span class="fc" id="L137">                System.out.println(vehicle.toCSVRecord().replaceAll(&quot;;&quot;, &quot; &quot;) + &quot; ruote ora nel CSV.&quot;);</span>
-<span class="fc" id="L138">            } else {</span>
-<span class="nc" id="L139">                System.out.println(duplicateMsg);</span>
+<span class="fc" id="L130">        String duplicateMsg = &quot;Veicolo duplicato non aggiunto.&quot;;</span>
+<span class="fc" id="L131">        try (FileWriter fileWriter = new FileWriter(CSV_PATH, true)) {</span>
+<span class="fc bfc" id="L132" title="All 2 branches covered.">            if (!isInCSV(vehicle.getPlate())) {</span>
+<span class="fc" id="L133">                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);</span>
+<span class="fc" id="L134">                bufferedWriter.write(vehicle.toCSVRecord() + &quot;\n&quot;);</span>
+<span class="fc" id="L135">                bufferedWriter.close();</span>
+<span class="fc" id="L136">                System.out.println(vehicle.toCSVRecord().replaceAll(&quot;;&quot;, &quot; &quot;) + &quot; ruote ora nel CSV.&quot;);</span>
+<span class="fc" id="L137">            } else {</span>
+<span class="fc" id="L138">                System.out.println(duplicateMsg);</span>
             }
-<span class="nc" id="L141">        } catch (IOException e) {</span>
-<span class="nc" id="L142">            System.out.println(&quot;Error writing CSV file: &quot; + e.getMessage());</span>
+<span class="nc" id="L140">        } catch (IOException e) {</span>
+<span class="nc" id="L141">            System.out.println(&quot;Error writing CSV file: &quot; + e.getMessage());</span>
         }
-<span class="fc" id="L144">    }</span>
+<span class="fc" id="L143">    }</span>
 
     public static void addVehicleToCSV(String vehicleString) {
         try {
-<span class="fc" id="L148">            addVehicleToCSV(Vehicle.getVehicleFromCSVRecord(vehicleString));</span>
-<span class="fc" id="L149">        } catch (IllegalArgumentException e) {</span>
-<span class="fc" id="L150">            System.out.println(&quot;Veicolo non ben formattato non aggiunto &quot; + vehicleString);</span>
+<span class="fc" id="L147">            addVehicleToCSV(Vehicle.getVehicleFromCSVRecord(vehicleString));</span>
+<span class="fc" id="L148">        } catch (IllegalArgumentException e) {</span>
+<span class="fc" id="L149">            System.out.println(&quot;Veicolo non ben formattato non aggiunto &quot; + vehicleString);</span>
         }
-<span class="fc" id="L152">    }</span>
+<span class="fc" id="L151">    }</span>
 
     public static void addVehiclesToCSV(ArrayList&lt;Vehicle&gt; newVehicles) {
-<span class="fc bfc" id="L155" title="All 2 branches covered.">        for (int i = 0; i &lt; newVehicles.size(); i++) {</span>
-<span class="fc" id="L156">            addVehicleToCSV(newVehicles.get(i));</span>
+<span class="fc bfc" id="L154" title="All 2 branches covered.">        for (int i = 0; i &lt; newVehicles.size(); i++) {</span>
+<span class="fc" id="L155">            addVehicleToCSV(newVehicles.get(i));</span>
         }
-<span class="fc" id="L158">    }</span>
+<span class="fc" id="L157">    }</span>
 
     public static void hardResetToExampleFileProvided() {
-<span class="fc" id="L161">        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(CSV_PATH))) {</span>
-<span class="fc" id="L162">            bufferedWriter.write(DEFAULTS_CSV);</span>
-<span class="nc" id="L163">        } catch (IOException e) {</span>
-<span class="nc" id="L164">            System.out.println(&quot;reset failed.&quot;);</span>
+<span class="fc" id="L160">        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(CSV_PATH))) {</span>
+<span class="fc" id="L161">            bufferedWriter.write(DEFAULTS_CSV);</span>
+<span class="nc" id="L162">        } catch (IOException e) {</span>
+<span class="nc" id="L163">            System.out.println(&quot;reset failed.&quot;);</span>
         }
-<span class="fc" id="L166">    }</span>
+<span class="fc" id="L165">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

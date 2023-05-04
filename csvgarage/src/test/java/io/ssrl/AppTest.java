@@ -84,7 +84,7 @@ class AppTest {
         String expected = "Record CSV e linea del file corrispondenti alla targa \"iv9999dt\" "
                 + ":Trovato a riga: 4iveco;aaa;100000.0;iv9999dt;4";
         String actual = outContent.toString().replace("\r", "").replace("\n", "");
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -92,7 +92,7 @@ class AppTest {
         App.main(new String[] {"14000.0$"});
         String expected = "fiat panda 14000.0 pd000xy 4";
         String actual = outContent.toString().replace("\r", "").replace("\n", "");
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
     @Test

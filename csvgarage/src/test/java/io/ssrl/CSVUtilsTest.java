@@ -55,7 +55,7 @@ public class CSVUtilsTest {
     }
 
     @Test
-    void testNotFoundValid() {
+    void isNotInCSV() {
         assertFalse(CSVUtils.isInCSV("pd010xy"));
     }
 
@@ -82,10 +82,24 @@ public class CSVUtilsTest {
     }
 
     @Test
+    void testDuplicateVehicle() {
+        CSVUtils.addVehicleToCSV("Ducati;Monster;6000.0;gb901v;2");
+        CSVUtils.addVehicleToCSV("Ducati;Monster;6000.0;gb901v;2");
+        String actual = outContent.toString().replace("\r", "").replace("\n", "");
+        String expected = "ducati Monster 6000.0 gb901v 2 ruote ora nel CSV.Veicolo duplicato non aggiunto.";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testNotFoundPlate() {
+        CSVUtils.findVehicleCSVRecord("pd010xy");
+    }
+
+    @Test
     void testAddUnformattedVehicle() {
         CSVUtils.addVehicleToCSV("poorly-formatted;String");
         String actual = outContent.toString().replace("\r", "").replace("\n", "");
         String expected = "Veicolo non ben formattato non aggiunto poorly-formatted;String";
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 }

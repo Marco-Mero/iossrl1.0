@@ -27,7 +27,7 @@ class AppTest extends TestConstants {
     void testApp() {
         App.main(new String[0]);
     }
-
+    
     @RepeatedTest(TESTS_TO_RUN)
     void testRandomApp() {
         outContent.reset();

@@ -46,7 +46,7 @@ public final class CSVUtils {
                 }
             }
 
-            if (currentVehicle == null && vehicleList.size() == 0) {
+            if (currentVehicle == null || vehicleList.size() == 0) {
                 vehicleList.add("Nessun veicolo a " + wheelNumber + " ruote nel garage.");
             }
 
@@ -68,7 +68,6 @@ public final class CSVUtils {
         }
 
         try (
-
                 BufferedReader bufferedReader = new BufferedReader(new FileReader(CSV_PATH))) {
             do {
                 currentVehicle = bufferedReader.readLine();
