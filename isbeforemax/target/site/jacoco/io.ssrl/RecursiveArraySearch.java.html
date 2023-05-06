@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RecursiveArraySearch.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">csvgarage</a> &gt; <a href="index.source.html" class="el_package">io.ssrl</a> &gt; <span class="el_source">RecursiveArraySearch.java</span></div><h1>RecursiveArraySearch.java</h1><pre class="source lang-java linenums">package io.ssrl;
+
+public final class RecursiveArraySearch {
+    private RecursiveArraySearch() {
+    }
+
+    private static int findFirstMaxIndex(int[] array) {
+<span class="fc" id="L8">        int currentMaxIndex = 0;</span>
+<span class="fc" id="L9">        int max = -1;</span>
+<span class="fc bfc" id="L10" title="All 2 branches covered.">        for (int i = 0; i &lt; array.length; i++) {</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">            if (array[i] &gt; max) {</span>
+<span class="fc" id="L12">                max = array[i];</span>
+<span class="fc" id="L13">                currentMaxIndex = i;</span>
+<span class="fc bfc" id="L14" title="All 2 branches covered.">            } else if (array[i] == max) {</span>
+                continue;
+            }
+        }
+<span class="fc" id="L18">        return currentMaxIndex;</span>
+    }
+
+    public static boolean isMaxBeforeItem(int[] array, int toFind) {
+<span class="fc bfc" id="L22" title="All 3 branches covered.">        switch (array.length) {</span>
+            case 0:
+<span class="fc" id="L24">                System.out.println(&quot;Warn: Array nullo in ingresso.&quot;);</span>
+<span class="fc" id="L25">                return false;</span>
+            case 1:
+<span class="fc" id="L27">                System.out.println(&quot;L'array contiene solo: &quot; + toFind);</span>
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">                return toFind == array[0];</span>
+            default:
+<span class="fc" id="L30">                int maxIndex = findFirstMaxIndex(array);</span>
+<span class="fc" id="L31">                int max = array[findFirstMaxIndex(array)];</span>
+<span class="fc" id="L32">                return isMaxBeforeItem(array, toFind, max, maxIndex, 0, 0);</span>
+        }
+    }
+
+    private static boolean isMaxBeforeItem(
+            int[] array, int toFind,
+            int max, int maxIndex,
+            int originalOccurrences, int originalIndex) {
+
+<span class="fc" id="L41">        int occurrences = originalOccurrences;</span>
+<span class="fc" id="L42">        int currentIndex = originalIndex;</span>
+
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        if (currentIndex &lt; array.length) {</span>
+<span class="fc bfc" id="L45" title="All 4 branches covered.">            if (currentIndex &gt; maxIndex &amp;&amp; originalOccurrences == 0) {</span>
+<span class="fc" id="L46">                System.out.println(&quot;Valore non trovato prima del massimo.&quot;);</span>
+<span class="fc" id="L47">                return false;</span>
+            }
+<span class="fc bfc" id="L49" title="All 2 branches covered.">            if (array[currentIndex] == toFind) {</span>
+<span class="fc" id="L50">                occurrences++;</span>
+            }
+<span class="fc" id="L52">            currentIndex++;</span>
+<span class="fc" id="L53">            return isMaxBeforeItem(array, toFind, max, maxIndex, occurrences, currentIndex);</span>
+        }
+
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">        System.out.println((occurrences != 0) ? &quot;Il valore compare nell'array: &quot; + occurrences + &quot; volte.&quot; : &quot;&quot;);</span>
+
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        return (occurrences == 0) ? false : true;</span>
+
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
