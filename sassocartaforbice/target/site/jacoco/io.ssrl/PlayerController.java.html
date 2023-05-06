@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PlayerController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sassocartaforbice</a> &gt; <a href="index.source.html" class="el_package">io.ssrl</a> &gt; <span class="el_source">PlayerController.java</span></div><h1>PlayerController.java</h1><pre class="source lang-java linenums">package io.ssrl;
+
+import java.util.Scanner;
+
+import static io.ssrl.GameConstants.ESCAPE_STRING;
+
+public class PlayerController {
+    private static final int NAME_LENGTH = 13;
+    private String name;
+    private int score;
+    private Move move;
+    private Scanner inputParser;
+
+<span class="fc" id="L14">    public PlayerController(String name, Scanner inputParser) {</span>
+<span class="fc" id="L15">        this.name = name;</span>
+<span class="fc" id="L16">        this.score = 0;</span>
+<span class="fc" id="L17">        this.move = null;</span>
+<span class="fc" id="L18">        this.inputParser = inputParser;</span>
+<span class="fc" id="L19">    }</span>
+
+    public String getName() {
+<span class="nc" id="L22">        return name;</span>
+    }
+
+    public int getScore() {
+<span class="fc" id="L26">        return score;</span>
+    }
+
+    public Move getMove() {
+<span class="fc" id="L30">        return move;</span>
+    }
+
+    public String getMoveName() {
+<span class="nc" id="L34">        return move.name().toLowerCase();</span>
+    }
+
+    public void tellScore() {
+<span class="fc" id="L38">        System.out.print(String.format(&quot;%-&quot; + NAME_LENGTH + &quot;s&quot;, name).substring(0, NAME_LENGTH) + score);</span>
+<span class="fc" id="L39">    }</span>
+
+    public void score() {
+<span class="nc" id="L42">        score++;</span>
+<span class="nc" id="L43">    }</span>
+
+    public void setRandomMove() {
+<span class="nc" id="L46">        move = Move.randomMove();</span>
+<span class="nc" id="L47">    }</span>
+
+    public void setMove(Move myMove) {
+<span class="nc" id="L50">        move = myMove;</span>
+<span class="nc" id="L51">    }</span>
+
+    public void wins() {
+<span class="nc" id="L54">        System.out.println(&quot;      ~~~ &quot; + name + &quot; vince ~~~&quot;);</span>
+<span class="nc" id="L55">    }</span>
+
+    public boolean isNamed(String paragon) {
+<span class="nc" id="L58">        return name.equalsIgnoreCase(paragon);</span>
+    }
+
+    public void promptMove() {
+<span class="fc" id="L62">        System.out.println(&quot;~ &quot; + name + &quot;:  [Sasso, carta, forbice]?&quot;);</span>
+<span class="fc" id="L63">        this.move = getMoveFromInput();</span>
+<span class="fc" id="L64">    }</span>
+
+    public Move getMoveFromInput() {
+        String inputMove;
+        do {
+<span class="fc" id="L69">            inputMove = inputParser.nextLine();</span>
+<span class="fc" id="L70">            Move aMove = Move.fromString(inputMove);</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">            if (inputMove.equals(ESCAPE_STRING)) {</span>
+<span class="fc" id="L72">                return null;</span>
+            }
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">            if (aMove != null) {</span>
+<span class="fc" id="L75">                return move;</span>
+            } else {
+<span class="nc" id="L77">                System.out.println(&quot; ~ Input imprevisto, ammessi: sasso, carta o forbice &quot;);</span>
+            }
+<span class="nc bnc" id="L79" title="All 2 branches missed.">        } while (!inputMove.equals(ESCAPE_STRING));</span>
+<span class="nc" id="L80">        return null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GameLogic.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sassocartaforbice</a> &gt; <a href="index.source.html" class="el_package">io.ssrl</a> &gt; <span class="el_source">GameLogic.java</span></div><h1>GameLogic.java</h1><pre class="source lang-java linenums">package io.ssrl;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+import static io.ssrl.GameConstants.POINTS_TO_WIN;
+import static io.ssrl.GameConstants.SEPARATOR;
+
+public class GameLogic {
+
+    private String lastRoundWinner;
+    private PlayerController playerOne;
+    private PlayerController playerTwo;
+
+<span class="fc" id="L15">    public GameLogic(Scanner inputSource, String nameOne, String nameTwo) {</span>
+<span class="fc" id="L16">        playerOne = new PlayerController(nameOne, inputSource);</span>
+<span class="fc" id="L17">        playerTwo = new PlayerController(nameTwo, inputSource);</span>
+<span class="fc" id="L18">    }</span>
+
+    public GameLogic(Scanner inputSource) {
+<span class="fc" id="L21">        this(inputSource, &quot;Giocatore&quot;, &quot;Computer&quot;);</span>
+<span class="fc" id="L22">    }</span>
+
+    public void clearScreen() {
+        try {
+<span class="nc" id="L26">            Runtime.getRuntime().exec(&quot;cls&quot;);</span>
+<span class="pc" id="L27">        } catch (IOException e) {</span>
+<span class="fc" id="L28">            System.out.println(&quot;Clearing Windows cmd prompt. . .&quot;);</span>
+        }
+<span class="fc" id="L30">        System.out.print(&quot;\033[H\033[2J&quot;);</span>
+<span class="fc" id="L31">        System.out.flush();</span>
+<span class="fc" id="L32">    }</span>
+
+    private void printScoreBoard() {
+<span class="fc" id="L35">        System.out.println(&quot;- - - - - - - - Punti - - - - - - - - \n&quot;);</span>
+<span class="fc" id="L36">        playerOne.tellScore();</span>
+<span class="fc" id="L37">        System.out.print(&quot; || &quot;);</span>
+<span class="fc" id="L38">        playerTwo.tellScore();</span>
+<span class="fc" id="L39">        System.out.println(&quot;\n&quot; + SEPARATOR);</span>
+<span class="fc" id="L40">    }</span>
+
+    public void printLastRound() {
+<span class="nc" id="L43">        System.out.print(&quot;\n&quot; + playerOne.getName() + &quot;: &quot; + playerOne.getMoveName() + &quot; ~ &quot;);</span>
+<span class="nc" id="L44">        System.out.print(playerTwo.getName() + &quot;: &quot; + playerTwo.getMoveName() + &quot;\n\n&quot;);</span>
+
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        if (lastRoundWinner == null) {</span>
+<span class="nc" id="L47">            System.out.println(&quot;Pareggio!&quot;);</span>
+<span class="nc" id="L48">        } else {</span>
+<span class="nc" id="L49">            System.out.println(lastRoundWinner + &quot; vince il round!&quot;);</span>
+        }
+<span class="nc" id="L51">        System.out.println(SEPARATOR);</span>
+<span class="nc" id="L52">    }</span>
+
+    public void printWinner() {
+<span class="nc bnc" id="L55" title="All 2 branches missed.">        if (playerOne.getScore() &gt; playerTwo.getScore()) {</span>
+<span class="nc" id="L56">            playerOne.wins();</span>
+<span class="nc" id="L57">        } else {</span>
+<span class="nc" id="L58">            playerTwo.wins();</span>
+        }
+<span class="nc" id="L60">    }</span>
+
+    private void drawGameElements() {
+<span class="fc" id="L63">        clearScreen();</span>
+<span class="fc" id="L64">        printScoreBoard();</span>
+<span class="pc bpc" id="L65" title="2 of 4 branches missed.">        if (playerOne.getScore() == POINTS_TO_WIN || playerTwo.getScore() == POINTS_TO_WIN) {</span>
+<span class="nc" id="L66">            printWinner();</span>
+<span class="pc bpc" id="L67" title="3 of 4 branches missed.">        } else if (playerOne.getMove() != null &amp;&amp; playerTwo.getMove() != null) {</span>
+<span class="nc" id="L68">            printLastRound();</span>
+        }
+<span class="fc" id="L70">    }</span>
+
+    public void setRoundWinner() {
+<span class="nc bnc" id="L73" title="All 2 branches missed.">        if (playerOne.getMove() == playerTwo.getMove()) {</span>
+<span class="nc" id="L74">            lastRoundWinner = null;</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">        } else if (playerOne.getMove().beats(playerTwo.getMove())) {</span>
+<span class="nc" id="L76">            playerOne.score();</span>
+<span class="nc" id="L77">            lastRoundWinner = playerOne.getName();</span>
+<span class="nc" id="L78">        } else {</span>
+<span class="nc" id="L79">            playerTwo.score();</span>
+<span class="nc" id="L80">            lastRoundWinner = playerTwo.getName();</span>
+        }
+<span class="nc" id="L82">    }</span>
+
+    public void setPlayerMoves() {
+<span class="fc" id="L85">        playerOne.promptMove();</span>
+<span class="pc bpc" id="L86" title="1 of 2 branches missed.">        if (playerOne.getMove() != null) {</span>
+<span class="nc" id="L87">            drawGameElements();</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">            if (playerTwo.isNamed(&quot;computer&quot;)) {</span>
+<span class="nc" id="L89">                playerTwo.setRandomMove();</span>
+<span class="nc" id="L90">            } else {</span>
+<span class="nc" id="L91">                playerTwo.promptMove();</span>
+            }
+<span class="nc" id="L93">            drawGameElements();</span>
+        }
+<span class="fc" id="L95">    }</span>
+
+    public void playerMatch() {
+        do {
+<span class="fc" id="L99">            drawGameElements();</span>
+<span class="fc" id="L100">            setPlayerMoves();</span>
+<span class="pc bpc" id="L101" title="3 of 4 branches missed.">            if (playerOne.getMove() != null &amp;&amp; playerTwo.getMove() != null) {</span>
+<span class="nc" id="L102">                setRoundWinner();</span>
+            }
+            break;
+        } while (playerOne.getScore() &lt; POINTS_TO_WIN &amp;&amp; playerTwo.getScore() &lt; POINTS_TO_WIN);
+<span class="fc" id="L106">        drawGameElements();</span>
+<span class="fc" id="L107">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

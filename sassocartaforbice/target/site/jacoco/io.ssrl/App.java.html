@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sassocartaforbice</a> &gt; <a href="index.source.html" class="el_package">io.ssrl</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">package io.ssrl;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Scanner;
+
+import static io.ssrl.GameConstants.CHOOSE_MODE_MSG;
+import static io.ssrl.GameConstants.COMPUTER_OPPONENT;
+import static io.ssrl.GameConstants.ESCAPE_STRING;
+import static io.ssrl.GameConstants.GAME_OVER_MSG;
+import static io.ssrl.GameConstants.GAME_RULES;
+import static io.ssrl.GameConstants.SEPARATOR;
+import static io.ssrl.GameConstants.TITLE;
+
+public final class App {
+<span class="fc" id="L16">    private static String[] possibleChoices = {&quot;multi&quot;, ESCAPE_STRING, &quot;&quot;};</span>
+
+    private App() {
+    }
+
+    private static void chooseProgram(String choice, Scanner playerInput) {
+
+<span class="pc bpc" id="L23" title="1 of 4 branches missed.">        switch (choice) {</span>
+            case &quot;multi&quot;:
+<span class="fc" id="L25">                GameLogic multiMatch = new GameLogic(playerInput, &quot;Giocatore 1&quot;, &quot;Giocatore 2&quot;);</span>
+<span class="fc" id="L26">                multiMatch.playerMatch();</span>
+<span class="fc" id="L27">                break;</span>
+
+            case ESCAPE_STRING:
+                break;
+
+            case &quot;&quot;:
+<span class="fc" id="L33">                System.out.println(COMPUTER_OPPONENT);</span>
+<span class="fc" id="L34">                GameLogic singleMatch = new GameLogic(playerInput);</span>
+<span class="fc" id="L35">                singleMatch.playerMatch();</span>
+<span class="fc" id="L36">                break;</span>
+            default:
+<span class="nc" id="L38">                System.out.println(SEPARATOR + &quot;\nStringa non riconosciuta, riprovare:\n&quot; + SEPARATOR);</span>
+        }
+
+<span class="fc" id="L41">    }</span>
+
+    private static void enableClrScrn() {
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">        if (System.getProperty(&quot;os.name&quot;).contains(&quot;Windows&quot;)) {</span>
+            try {
+<span class="fc" id="L46">                ProcessBuilder builder = new ProcessBuilder(&quot;cmd.exe&quot;, &quot;/c&quot;, &quot;cls&quot;);</span>
+<span class="fc" id="L47">                builder.inheritIO().start().waitFor();</span>
+<span class="fc" id="L48">                System.setProperty(&quot;file.encoding&quot;, &quot;UTF-8&quot;);</span>
+<span class="pc" id="L49">            } catch (IOException e) {</span>
+<span class="nc" id="L50">                System.out.println(</span>
+<span class="nc" id="L51">                        &quot;Sequenze ANSI per pulizia schermo non abilitate, funzionamento subottimale. &quot;);</span>
+<span class="nc" id="L52">            } catch (InterruptedException e) {</span>
+<span class="nc" id="L53">                System.out.println(</span>
+<span class="nc" id="L54">                        &quot;Sequenze ANSI per pulizia schermo non abilitate, funzionamento subottimale. &quot;);</span>
+            }
+        }
+<span class="fc" id="L57">    }</span>
+
+    public static void main(String[] args) {
+<span class="fc" id="L60">        try (Scanner playerInput = new Scanner(System.in)) {</span>
+<span class="fc" id="L61">            String chosenProgram = null;</span>
+
+<span class="fc" id="L63">            enableClrScrn();</span>
+<span class="fc" id="L64">            System.out.println(TITLE);</span>
+<span class="fc" id="L65">            System.out.println(GAME_RULES);</span>
+
+            do {
+<span class="fc" id="L68">                System.out.println(CHOOSE_MODE_MSG);</span>
+<span class="fc" id="L69">                chosenProgram = playerInput.nextLine();</span>
+<span class="fc" id="L70">                chooseProgram(chosenProgram, playerInput);</span>
+
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">            } while (!Arrays.asList(possibleChoices).contains(chosenProgram));</span>
+
+        }
+<span class="fc" id="L75">        System.out.println(GAME_OVER_MSG);</span>
+<span class="fc" id="L76">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
