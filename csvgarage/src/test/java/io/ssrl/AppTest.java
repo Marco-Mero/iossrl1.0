@@ -75,7 +75,7 @@ class AppTest {
         }
         App.main(new String[] {"auto"});
         String actual = outContent.toString().replace("\r", "").replace("\n", "");
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -106,6 +106,6 @@ class AppTest {
         String expected = "carbrand carModel 1233.0 te452ta 4 ruote ora nel CSV."
                 + "motobrand motoModel 1233.0 te45st 2 ruote ora nel CSV.";
         String actual = outContent.toString().replace("\r", "").replace("\n", "");
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 }
