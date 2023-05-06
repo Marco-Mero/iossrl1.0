@@ -6,13 +6,13 @@ import java.util.Random;
 <span class="fc" id="L6">    SASSO, CARTA, FORBICE;</span>
 
     public boolean beats(Move opponentMove) {
-<span class="nc bnc" id="L9" title="All 4 branches missed.">        switch (this) {</span>
+<span class="pc bpc" id="L9" title="1 of 4 branches missed.">        switch (this) {</span>
             case SASSO:
-<span class="nc bnc" id="L11" title="All 2 branches missed.">                return opponentMove == Move.FORBICE;</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">                return opponentMove == Move.FORBICE;</span>
             case CARTA:
-<span class="nc bnc" id="L13" title="All 2 branches missed.">                return opponentMove == Move.SASSO;</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">                return opponentMove == Move.SASSO;</span>
             case FORBICE:
-<span class="nc bnc" id="L15" title="All 2 branches missed.">                return opponentMove == Move.CARTA;</span>
+<span class="fc bfc" id="L15" title="All 2 branches covered.">                return opponentMove == Move.CARTA;</span>
             default:
 <span class="nc" id="L17">                throw new IllegalArgumentException(&quot;Unhandled values for the inputted moves.&quot;);</span>
         }
@@ -22,21 +22,21 @@ import java.util.Random;
 <span class="fc bfc" id="L22" title="All 2 branches covered.">        if (move.contains(&quot;sasso&quot;)) {</span>
 <span class="fc" id="L23">            return Move.SASSO;</span>
         }
-<span class="pc bpc" id="L25" title="1 of 2 branches missed.">        if (move.contains(&quot;carta&quot;)) {</span>
-<span class="nc" id="L26">            return Move.CARTA;</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        if (move.contains(&quot;carta&quot;)) {</span>
+<span class="fc" id="L26">            return Move.CARTA;</span>
         }
-<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        if (move.contains(&quot;forbic&quot;)) {</span>
-<span class="nc" id="L29">            return Move.FORBICE;</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (move.contains(&quot;forbic&quot;)) {</span>
+<span class="fc" id="L29">            return Move.FORBICE;</span>
         }
 <span class="fc" id="L31">        return null;</span>
     }
 
     public static Move randomMove() {
-<span class="nc" id="L35">        return Move.values()[new Random().nextInt(Move.values().length)];</span>
+<span class="fc" id="L35">        return Move.values()[new Random().nextInt(Move.values().length)];</span>
     }
 
     public String toPrintString() {
-<span class="nc" id="L39">        return this.name().toLowerCase();</span>
+<span class="fc" id="L39">        return this.name().toLowerCase();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

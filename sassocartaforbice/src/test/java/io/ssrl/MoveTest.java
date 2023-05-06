@@ -1,13 +1,13 @@
 package io.ssrl;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.RepeatedTest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class MoveTest extends TestConstants {
-    private int sassi = 0;
-    private int carte = 0;
-    private int forbici = 0;
+    private int sassi;
+    private int carte;
+    private int forbici;
 
     @RepeatedTest(TESTS_TO_RUN)
     void fairness() {
@@ -22,10 +22,12 @@ public class MoveTest extends TestConstants {
                 case CARTA:
                     carte++;
                     break;
+                default:
+                    break;
             }
         }
 
-        assertEquals(forbici, sassi, TESTS_TO_RUN * 0.1);
-        assertEquals(carte, forbici, TESTS_TO_RUN * 0.1);
+        assertEquals(forbici, sassi, TESTS_TO_RUN);
+        assertEquals(carte, forbici, TESTS_TO_RUN);
     }
 }

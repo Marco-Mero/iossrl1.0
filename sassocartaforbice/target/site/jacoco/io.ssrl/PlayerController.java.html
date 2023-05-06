@@ -19,7 +19,7 @@ public class PlayerController {
 <span class="fc" id="L19">    }</span>
 
     public String getName() {
-<span class="nc" id="L22">        return name;</span>
+<span class="fc" id="L22">        return name;</span>
     }
 
     public int getScore() {
@@ -31,7 +31,7 @@ public class PlayerController {
     }
 
     public String getMoveName() {
-<span class="nc" id="L34">        return move.name().toLowerCase();</span>
+<span class="fc" id="L34">        return move.name().toLowerCase();</span>
     }
 
     public void tellScore() {
@@ -39,23 +39,23 @@ public class PlayerController {
 <span class="fc" id="L39">    }</span>
 
     public void score() {
-<span class="nc" id="L42">        score++;</span>
-<span class="nc" id="L43">    }</span>
+<span class="fc" id="L42">        score++;</span>
+<span class="fc" id="L43">    }</span>
 
     public void setRandomMove() {
-<span class="nc" id="L46">        move = Move.randomMove();</span>
-<span class="nc" id="L47">    }</span>
+<span class="fc" id="L46">        move = Move.randomMove();</span>
+<span class="fc" id="L47">    }</span>
 
     public void setMove(Move myMove) {
 <span class="nc" id="L50">        move = myMove;</span>
 <span class="nc" id="L51">    }</span>
 
     public void wins() {
-<span class="nc" id="L54">        System.out.println(&quot;      ~~~ &quot; + name + &quot; vince ~~~&quot;);</span>
-<span class="nc" id="L55">    }</span>
+<span class="fc" id="L54">        System.out.println(&quot;      ~~~ &quot; + name + &quot; vince ~~~&quot;);</span>
+<span class="fc" id="L55">    }</span>
 
     public boolean isNamed(String paragon) {
-<span class="nc" id="L58">        return name.equalsIgnoreCase(paragon);</span>
+<span class="fc" id="L58">        return name.equalsIgnoreCase(paragon);</span>
     }
 
     public void promptMove() {
@@ -68,16 +68,14 @@ public class PlayerController {
         do {
 <span class="fc" id="L69">            inputMove = inputParser.nextLine();</span>
 <span class="fc" id="L70">            Move aMove = Move.fromString(inputMove);</span>
-<span class="fc bfc" id="L71" title="All 2 branches covered.">            if (inputMove.equals(ESCAPE_STRING)) {</span>
-<span class="fc" id="L72">                return null;</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">            if (aMove != null) {</span>
+<span class="fc" id="L72">                this.move = aMove;</span>
+<span class="fc" id="L73">                return aMove;</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">            } else if (!&quot;quit&quot;.equals(inputMove)) {</span>
+<span class="fc" id="L75">                System.out.println(&quot; ~ Input imprevisto, ammessi: sasso, carta o forbice &quot;);</span>
             }
-<span class="pc bpc" id="L74" title="1 of 2 branches missed.">            if (aMove != null) {</span>
-<span class="fc" id="L75">                return move;</span>
-            } else {
-<span class="nc" id="L77">                System.out.println(&quot; ~ Input imprevisto, ammessi: sasso, carta o forbice &quot;);</span>
-            }
-<span class="nc bnc" id="L79" title="All 2 branches missed.">        } while (!inputMove.equals(ESCAPE_STRING));</span>
-<span class="nc" id="L80">        return null;</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">        } while (!inputMove.equals(ESCAPE_STRING));</span>
+<span class="fc" id="L78">        return null;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -71,7 +71,7 @@ public class PlayerController {
             if (aMove != null) {
                 this.move = aMove;
                 return aMove;
-            } else if (!inputMove.equals("quit")) {
+            } else if (!"quit".equals(inputMove)) {
                 System.out.println(" ~ Input imprevisto, ammessi: sasso, carta o forbice ");
             }
         } while (!inputMove.equals(ESCAPE_STRING));

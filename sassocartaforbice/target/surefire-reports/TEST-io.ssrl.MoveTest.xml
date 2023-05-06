@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="io.ssrl.AppTest" time="60.117" tests="12" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="io.ssrl.MoveTest" time="0.099" tests="100" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -62,16 +62,104 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="testMainPCMethod" classname="io.ssrl.AppTest" time="0.064"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="6.01"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="5.846"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="6.038"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="5.988"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="5.865"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="6.041"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="5.966"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="5.988"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="6.094"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="6.156"/>
-  <testcase name="testMainMultiMethod" classname="io.ssrl.AppTest" time="0.015"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.016"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.003"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.002"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0.001"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
+  <testcase name="fairness" classname="io.ssrl.MoveTest" time="0"/>
 </testsuite>
