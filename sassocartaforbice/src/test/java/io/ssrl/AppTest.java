@@ -81,7 +81,7 @@ class AppTest extends TestConstants {
         assertEquals(expectedOutput, getActualOutput());
     }
 
-    @RepeatedTest(TESTS_TO_RUN / 10)
+    @RepeatedTest(TEST_DELTA)
     public void testMoves() {
         int playerWins = 0;
         int computerWins = 0;
@@ -100,6 +100,6 @@ class AppTest extends TestConstants {
                 playerWins++;
             }
         }
-        assertEquals(computerWins, playerWins, TESTS_TO_RUN / 10);
+        assertEquals(computerWins, playerWins, TEST_DELTA);
     }
 }
