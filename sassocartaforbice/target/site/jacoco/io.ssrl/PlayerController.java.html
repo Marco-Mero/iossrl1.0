@@ -69,13 +69,12 @@ public class PlayerController {
 <span class="fc" id="L69">            inputMove = inputParser.nextLine();</span>
 <span class="fc" id="L70">            Move aMove = Move.fromString(inputMove);</span>
 <span class="fc bfc" id="L71" title="All 2 branches covered.">            if (aMove != null) {</span>
-<span class="fc" id="L72">                this.move = aMove;</span>
-<span class="fc" id="L73">                return aMove;</span>
-<span class="fc bfc" id="L74" title="All 2 branches covered.">            } else if (!&quot;quit&quot;.equals(inputMove)) {</span>
-<span class="fc" id="L75">                System.out.println(&quot; ~ Input imprevisto, ammessi: sasso, carta o forbice &quot;);</span>
+<span class="fc" id="L72">                return aMove;</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">            } else if (!&quot;quit&quot;.equals(inputMove)) {</span>
+<span class="fc" id="L74">                System.out.println(&quot; ~ Input imprevisto, ammessi: sasso, carta o forbice &quot;);</span>
             }
-<span class="fc bfc" id="L77" title="All 2 branches covered.">        } while (!inputMove.equals(ESCAPE_STRING));</span>
-<span class="fc" id="L78">        return null;</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">        } while (!inputMove.equals(ESCAPE_STRING));</span>
+<span class="fc" id="L77">        return null;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

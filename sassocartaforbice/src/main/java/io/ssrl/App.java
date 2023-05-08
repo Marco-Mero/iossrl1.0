@@ -68,7 +68,6 @@ public final class App {
                 System.out.println(CHOOSE_MODE_MSG);
                 chosenProgram = playerInput.nextLine();
                 chooseProgram(chosenProgram, playerInput);
-
             } while (!Arrays.asList(possibleChoices).contains(chosenProgram));
 
         }

@@ -94,6 +94,7 @@ class AppTest extends TestConstants {
             inContent = new ByteArrayInputStream(moveList.getBytes());
             System.setIn(inContent);
             App.main(new String[0]);
+
             if (getActualOutput().contains("PC=Winner")) {
                 computerWins++;
             } else if (getActualOutput().contains("P1=Winner")) {

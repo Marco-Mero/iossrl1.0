@@ -12,6 +12,8 @@ public class GameLogic {
     private PlayerController playerOne;
     private PlayerController playerTwo;
 
+    private Move p1LastMove;
+
     public GameLogic(Scanner inputSource, String nameOne, String nameTwo) {
         playerOne = new PlayerController(nameOne, inputSource);
         playerTwo = new PlayerController(nameTwo, inputSource);
@@ -40,8 +42,10 @@ public class GameLogic {
     }
 
     public void printLastRound() {
-        System.out.print("\n" + playerOne.getName() + ": " + playerOne.getMoveName() + " ~ ");
-        System.out.print(playerTwo.getName() + ": " + playerTwo.getMoveName() + "\n\n");
+        if (p1LastMove != null) {
+            System.out.print("\n" + playerOne.getName() + ": " + p1LastMove.toPrintString() + " ~ ");
+            System.out.print(playerTwo.getName() + ": " + playerTwo.getMoveName() + "\n\n");
+        }
 
         if (lastRoundWinner == null) {
             System.out.println("Pareggio!");
@@ -70,6 +74,7 @@ public class GameLogic {
     }
 
     public void setRoundWinner() {
+        p1LastMove = playerOne.getMove();
         if (playerOne.getMove() == playerTwo.getMove()) {
             lastRoundWinner = null;
         } else if (playerOne.getMove().beats(playerTwo.getMove())) {

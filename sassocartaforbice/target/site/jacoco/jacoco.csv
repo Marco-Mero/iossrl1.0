@@ -1,5 +1,5 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-sassocartaforbice,io.ssrl,GameLogic,8,236,2,26,2,62,2,22,0,10
-sassocartaforbice,io.ssrl,PlayerController,4,125,0,6,2,31,1,15,1,12
+sassocartaforbice,io.ssrl,GameLogic,8,244,2,28,2,64,2,23,0,10
+sassocartaforbice,io.ssrl,PlayerController,4,122,0,6,2,30,1,15,1,12
 sassocartaforbice,io.ssrl,Move,5,93,1,15,1,15,1,13,0,5
 sassocartaforbice,io.ssrl,App,12,113,3,5,6,27,3,6,0,4
