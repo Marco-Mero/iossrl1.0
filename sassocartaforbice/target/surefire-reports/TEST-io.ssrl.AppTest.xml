@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="io.ssrl.AppTest" time="60.117" tests="12" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="io.ssrl.AppTest" time="62.937" tests="12" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -19,7 +19,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_202\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\Satan\AppData\Local\Temp\surefire970317577157892974\surefirebooter1697029097904611964.jar C:\Users\Satan\AppData\Local\Temp\surefire970317577157892974 2023-05-06T21-29-03_942-jvmRun1 surefire1093036788485554684tmp surefire_06570589879211777981tmp"/>
+    <property name="sun.java.command" value="C:\Users\Satan\AppData\Local\Temp\surefire4059906526625868104\surefirebooter8083427716055110423.jar C:\Users\Satan\AppData\Local\Temp\surefire4059906526625868104 2023-05-08T09-10-15_684-jvmRun1 surefire186939992894674636tmp surefire_06548284677083029679tmp"/>
     <property name="surefire.test.class.path" value="F:\zzFile Personali\wa\Java\iossrl1.0\sassocartaforbice\target\test-classes;F:\zzFile Personali\wa\Java\iossrl1.0\sassocartaforbice\target\classes;C:\Users\Satan\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\Satan\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\Satan\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Satan\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\Satan\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\Satan\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;C:\Users\Satan\.m2\repository\io\ssrl\arrayutils\1.0-SNAPSHOT\arrayutils-1.0-SNAPSHOT.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\Satan"/>
@@ -32,7 +32,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\Satan\AppData\Local\Temp\surefire970317577157892974\surefirebooter1697029097904611964.jar;C:\\Users\\Satan\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.4\\org.jacoco.agent-0.8.4-runtime.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Satan\AppData\Local\Temp\surefire4059906526625868104\surefirebooter8083427716055110423.jar;C:\\Users\\Satan\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.4\\org.jacoco.agent-0.8.4-runtime.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_202\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_202\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -62,16 +62,16 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="testMainPCMethod" classname="io.ssrl.AppTest" time="0.064"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="6.01"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="5.846"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="6.038"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="5.988"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="5.865"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="6.041"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="5.966"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="5.988"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="6.094"/>
-  <testcase name="testMoves" classname="io.ssrl.AppTest" time="6.156"/>
-  <testcase name="testMainMultiMethod" classname="io.ssrl.AppTest" time="0.015"/>
+  <testcase name="testMainPCMethod" classname="io.ssrl.AppTest" time="0.062"/>
+  <testcase name="testMoves" classname="io.ssrl.AppTest" time="6.378"/>
+  <testcase name="testMoves" classname="io.ssrl.AppTest" time="6.067"/>
+  <testcase name="testMoves" classname="io.ssrl.AppTest" time="6.633"/>
+  <testcase name="testMoves" classname="io.ssrl.AppTest" time="6.374"/>
+  <testcase name="testMoves" classname="io.ssrl.AppTest" time="6.437"/>
+  <testcase name="testMoves" classname="io.ssrl.AppTest" time="6.294"/>
+  <testcase name="testMoves" classname="io.ssrl.AppTest" time="6.352"/>
+  <testcase name="testMoves" classname="io.ssrl.AppTest" time="6.233"/>
+  <testcase name="testMoves" classname="io.ssrl.AppTest" time="5.947"/>
+  <testcase name="testMoves" classname="io.ssrl.AppTest" time="6.086"/>
+  <testcase name="testMainMultiMethod" classname="io.ssrl.AppTest" time="0.031"/>
 </testsuite>
